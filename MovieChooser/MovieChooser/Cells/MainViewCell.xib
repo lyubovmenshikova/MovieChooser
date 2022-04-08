@@ -24,7 +24,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZ8-gh-umM">
-                        <rect key="frame" x="10" y="58" width="63.5" height="30.5"/>
+                        <rect key="frame" x="10" y="60" width="63.5" height="30.5"/>
                         <attributedString key="attributedText">
                             <fragment content="Label">
                                 <attributes>
@@ -40,7 +40,7 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="fZ8-gh-umM" firstAttribute="top" secondItem="9ji-66-Q5y" secondAttribute="bottom" constant="8" id="G7M-Ec-Agw"/>
+                <constraint firstItem="fZ8-gh-umM" firstAttribute="top" secondItem="9ji-66-Q5y" secondAttribute="bottom" constant="10" id="G7M-Ec-Agw"/>
                 <constraint firstItem="9ji-66-Q5y" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="MVh-Jq-6eg"/>
                 <constraint firstItem="9ji-66-Q5y" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="r3X-3C-30p"/>
                 <constraint firstItem="fZ8-gh-umM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="rQt-2P-CC9"/>

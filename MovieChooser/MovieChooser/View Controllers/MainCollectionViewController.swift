@@ -10,14 +10,18 @@ import UIKit
 
 class MainCollectionViewController: UICollectionViewController {
     
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//          return .lightContent
-//      }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+      }
    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-     //   setNeedsStatusBarAppearanceUpdate()
+       setNeedsStatusBarAppearanceUpdate()
         setupAppearance()
         
         let cellTypeNib = UINib(nibName: "MainViewCell", bundle: nil)
@@ -26,12 +30,20 @@ class MainCollectionViewController: UICollectionViewController {
     
     //настройка внешнего вида контроллера
     private func setupAppearance() {
-        navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = [.font : UIFont(name: "ChalkboardSE-Bold", size: 35) ?? "",.foregroundColor : UIColor.secondarySystemBackground]
         navigationItem.title = "Movie Chooser"
         collectionView.backgroundView = UIImageView(image: UIImage(named: "1"))
+        navigationItem.backButtonTitle = "Назад"
     }
+    
 
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toGenre" {
+            guard let destinationVC = segue.destination as? GenreViewController else { return }
+        }
+    }
 
     // MARK: UICollectionViewDataSource
 
@@ -82,6 +94,14 @@ class MainCollectionViewController: UICollectionViewController {
         return true
     }
     */
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.item {
+        case 0:
+            performSegue(withIdentifier: "toGenre", sender: nil)
+        default: break
+        }
+    }
 
     /*
     // Uncomment this method to specify if the specified item should be selected
