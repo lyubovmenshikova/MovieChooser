@@ -17,7 +17,7 @@ class GenreTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        navigationController?.navigationBar.barStyle = .default
     }
     
     override func viewDidLoad() {
