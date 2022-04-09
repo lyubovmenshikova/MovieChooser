@@ -18,10 +18,15 @@ class MainCollectionViewController: UICollectionViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.navigationBar.barStyle = .black
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       setNeedsStatusBarAppearanceUpdate()
+       //setNeedsStatusBarAppearanceUpdate()
         setupAppearance()
         
         let cellTypeNib = UINib(nibName: "MainViewCell", bundle: nil)
@@ -30,7 +35,7 @@ class MainCollectionViewController: UICollectionViewController {
     
     //настройка внешнего вида контроллера
     private func setupAppearance() {
-        navigationController?.navigationBar.largeTitleTextAttributes = [.font : UIFont(name: "ChalkboardSE-Bold", size: 35) ?? "",.foregroundColor : UIColor.secondarySystemBackground]
+        navigationController?.navigationBar.largeTitleTextAttributes = [.font : UIFont(name: "ChalkboardSE-Bold", size: 35) ?? "",.foregroundColor : UIColor.white]
         navigationItem.title = "Movie Chooser"
         collectionView.backgroundView = UIImageView(image: UIImage(named: "1"))
         navigationItem.backButtonTitle = "Назад"
