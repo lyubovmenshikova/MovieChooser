@@ -10,9 +10,9 @@
 		9F12AC6F27FC3F910099337B /* MainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12AC6E27FC3F910099337B /* MainCollectionViewController.swift */; };
 		9F12AC7A27FDC5040099337B /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12AC7827FDC5040099337B /* MainViewCell.swift */; };
 		9F12AC7B27FDC5040099337B /* MainViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F12AC7927FDC5040099337B /* MainViewCell.xib */; };
-		9F12AC8027FEF80F0099337B /* GenreViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12AC7E27FEF80F0099337B /* GenreViewCell.swift */; };
-		9F12AC8127FEF80F0099337B /* GenreViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F12AC7F27FEF80F0099337B /* GenreViewCell.xib */; };
-		9F12AC8327FEFA5A0099337B /* GenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12AC8227FEFA5A0099337B /* GenreViewController.swift */; };
+		9F12ACD12801C5260099337B /* GenreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12ACD02801C5260099337B /* GenreTableViewController.swift */; };
+		9F12ACD42801C5750099337B /* GenreViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12ACD22801C5750099337B /* GenreViewCell.swift */; };
+		9F12ACD52801C5750099337B /* GenreViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F12ACD32801C5750099337B /* GenreViewCell.xib */; };
 		9F1A148227FB051600D2DA24 /* ChoiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A148127FB051600D2DA24 /* ChoiceButton.swift */; };
 		9F93576D27F718E8007B54B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F93576C27F718E8007B54B5 /* AppDelegate.swift */; };
 		9F93576F27F718E8007B54B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F93576E27F718E8007B54B5 /* SceneDelegate.swift */; };
@@ -26,9 +26,9 @@
 		9F12AC6E27FC3F910099337B /* MainCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewController.swift; sourceTree = "<group>"; };
 		9F12AC7827FDC5040099337B /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
 		9F12AC7927FDC5040099337B /* MainViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewCell.xib; sourceTree = "<group>"; };
-		9F12AC7E27FEF80F0099337B /* GenreViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewCell.swift; sourceTree = "<group>"; };
-		9F12AC7F27FEF80F0099337B /* GenreViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenreViewCell.xib; sourceTree = "<group>"; };
-		9F12AC8227FEFA5A0099337B /* GenreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewController.swift; sourceTree = "<group>"; };
+		9F12ACD02801C5260099337B /* GenreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreTableViewController.swift; sourceTree = "<group>"; };
+		9F12ACD22801C5750099337B /* GenreViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewCell.swift; sourceTree = "<group>"; };
+		9F12ACD32801C5750099337B /* GenreViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenreViewCell.xib; sourceTree = "<group>"; };
 		9F1A148127FB051600D2DA24 /* ChoiceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceButton.swift; sourceTree = "<group>"; };
 		9F93576927F718E8007B54B5 /* MovieChooser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieChooser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F93576C27F718E8007B54B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,8 +56,8 @@
 			children = (
 				9F12AC7827FDC5040099337B /* MainViewCell.swift */,
 				9F12AC7927FDC5040099337B /* MainViewCell.xib */,
-				9F12AC7E27FEF80F0099337B /* GenreViewCell.swift */,
-				9F12AC7F27FEF80F0099337B /* GenreViewCell.xib */,
+				9F12ACD22801C5750099337B /* GenreViewCell.swift */,
+				9F12ACD32801C5750099337B /* GenreViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -114,7 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				9F12AC6E27FC3F910099337B /* MainCollectionViewController.swift */,
-				9F12AC8227FEFA5A0099337B /* GenreViewController.swift */,
+				9F12ACD02801C5260099337B /* GenreTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -194,7 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F12AC8127FEF80F0099337B /* GenreViewCell.xib in Resources */,
+				9F12ACD52801C5750099337B /* GenreViewCell.xib in Resources */,
 				9F93577927F718EA007B54B5 /* LaunchScreen.storyboard in Resources */,
 				9F93577627F718EA007B54B5 /* Assets.xcassets in Resources */,
 				9F93577427F718E8007B54B5 /* Main.storyboard in Resources */,
@@ -210,12 +210,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FA26B3327FAFA5A00010907 /* some.swift in Sources */,
+				9F12ACD42801C5750099337B /* GenreViewCell.swift in Sources */,
 				9F1A148227FB051600D2DA24 /* ChoiceButton.swift in Sources */,
-				9F12AC8027FEF80F0099337B /* GenreViewCell.swift in Sources */,
 				9F93576D27F718E8007B54B5 /* AppDelegate.swift in Sources */,
 				9F93576F27F718E8007B54B5 /* SceneDelegate.swift in Sources */,
 				9F12AC7A27FDC5040099337B /* MainViewCell.swift in Sources */,
-				9F12AC8327FEFA5A0099337B /* GenreViewController.swift in Sources */,
+				9F12ACD12801C5260099337B /* GenreTableViewController.swift in Sources */,
 				9F12AC6F27FC3F910099337B /* MainCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
