@@ -12,8 +12,8 @@ class MainCollectionViewController: UICollectionViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return UIStatusBarStyle.lightContent
-      }
-   
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -23,10 +23,10 @@ class MainCollectionViewController: UICollectionViewController {
         super.viewDidAppear(animated)
         navigationController?.navigationBar.barStyle = .black
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       //setNeedsStatusBarAppearanceUpdate()
+        //setNeedsStatusBarAppearanceUpdate()
         setupAppearance()
         
         let cellTypeNib = UINib(nibName: "MainViewCell", bundle: nil)
@@ -41,21 +41,21 @@ class MainCollectionViewController: UICollectionViewController {
         navigationItem.backButtonTitle = "Назад"
     }
     
-
+    
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toGenre" {
-            guard let destinationVC = segue.destination as? GenreViewController else { return }
+            guard let destinationVC = segue.destination as? GenreTableViewController else { return }
         }
     }
-
+    
     // MARK: UICollectionViewDataSource
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainViewCell", for: indexPath) as! MainViewCell
         
@@ -90,15 +90,15 @@ class MainCollectionViewController: UICollectionViewController {
         }
         return cell
     }
-
+    
     // MARK: UICollectionViewDelegate
-
+    
     /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
+     // Uncomment this method to specify if the specified item should be highlighted during tracking
+     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+     return true
+     }
+     */
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.item {
@@ -107,29 +107,29 @@ class MainCollectionViewController: UICollectionViewController {
         default: break
         }
     }
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
-    }
-    */
-
+    /*
+     // Uncomment this method to specify if the specified item should be selected
+     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+     return true
+     }
+     */
+    
+    /*
+     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
+     override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
+     return false
+     }
+     
+     override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
+     return false
+     }
+     
+     override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
+     
+     }
+     */
+    
 }
 
 extension MainCollectionViewController: UICollectionViewDelegateFlowLayout {
@@ -143,3 +143,5 @@ extension MainCollectionViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: UIScreen.main.bounds.width / 1.1, height: 120)
     }
 }
+
+
