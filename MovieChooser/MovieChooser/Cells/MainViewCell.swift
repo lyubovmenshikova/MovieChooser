@@ -22,7 +22,15 @@ class MainViewCell: UICollectionViewCell {
         layer.cornerRadius = 15
         iconCell.backgroundColor = UIColor(red: 240/255, green: 243/255, blue: 245/255, alpha: 1)
         iconCell.layer.cornerRadius = 15
+        
+        labelCell.textColor = .white
+        labelCell.font = UIFont(name: "TrebuchetMS", size: 25)
     }
     
-
+    func configureFirst(with mainButton: MainButton) {
+        labelCell.text = mainButton.title
+        iconCell.image = mainButton.image
+        backgroundView = mainButton.backgroundImage
+    }
+ 
 }

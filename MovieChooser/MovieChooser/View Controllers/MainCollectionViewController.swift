@@ -10,6 +10,8 @@ import UIKit
 
 class MainCollectionViewController: UICollectionViewController {
     
+    let mainButtons = MainButton.getButtons()
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return UIStatusBarStyle.lightContent
     }
@@ -57,30 +59,8 @@ class MainCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainViewCell", for: indexPath) as! MainViewCell
-        cell.labelCell.textColor = .white
-        cell.labelCell.font = UIFont(name: "TrebuchetMS", size: 25)
-        
-        switch indexPath.item {
-        case 0:
-            cell.iconCell.image = UIImage(systemName: "theatermasks")
-            cell.backgroundView = UIImageView(image: UIImage(named: "222"))
-            cell.labelCell.text = "Выбрать фильм по жанру"
-        case 1:
-            cell.iconCell.image = UIImage(systemName: "person")
-            cell.backgroundView = UIImageView(image: UIImage(named: "33"))
-            cell.labelCell.text = "Выбрать фильм по актеру"
-            return cell
-        case 2:
-            cell.iconCell.image = UIImage(systemName: "star")
-            cell.backgroundView = UIImageView(image: UIImage(named: "4"))
-            cell.labelCell.text = "Новинки"
-            return cell
-        case 3:
-            cell.iconCell.image = UIImage(systemName: "dice")
-            cell.backgroundView = UIImageView(image: UIImage(named: "5"))
-            cell.labelCell.text = "Случайный фильм"
-        default: return cell
-        }
+        let mainButton = mainButtons[indexPath.item]
+        cell.configureFirst(with: mainButton)
         return cell
     }
     

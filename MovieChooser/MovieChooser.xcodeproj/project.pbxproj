@@ -13,6 +13,8 @@
 		9F12ACD12801C5260099337B /* GenreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12ACD02801C5260099337B /* GenreTableViewController.swift */; };
 		9F12ACDB280305260099337B /* GenreViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12ACDA280305260099337B /* GenreViewCell.swift */; };
 		9F12ACDD28036CAF0099337B /* GenreListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12ACDC28036CAF0099337B /* GenreListViewController.swift */; };
+		9F12ACE02804BFB10099337B /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12ACDF2804BFB10099337B /* Genre.swift */; };
+		9F12ACE22804C85C0099337B /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12ACE12804C85C0099337B /* MainButton.swift */; };
 		9F1A148227FB051600D2DA24 /* ChoiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1A148127FB051600D2DA24 /* ChoiceButton.swift */; };
 		9F93576D27F718E8007B54B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F93576C27F718E8007B54B5 /* AppDelegate.swift */; };
 		9F93576F27F718E8007B54B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F93576E27F718E8007B54B5 /* SceneDelegate.swift */; };
@@ -29,6 +31,8 @@
 		9F12ACD02801C5260099337B /* GenreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreTableViewController.swift; sourceTree = "<group>"; };
 		9F12ACDA280305260099337B /* GenreViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewCell.swift; sourceTree = "<group>"; };
 		9F12ACDC28036CAF0099337B /* GenreListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreListViewController.swift; sourceTree = "<group>"; };
+		9F12ACDF2804BFB10099337B /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		9F12ACE12804C85C0099337B /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		9F1A148127FB051600D2DA24 /* ChoiceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceButton.swift; sourceTree = "<group>"; };
 		9F93576927F718E8007B54B5 /* MovieChooser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieChooser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F93576C27F718E8007B54B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +65,15 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		9F12ACDE2804BF970099337B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9F12ACDF2804BFB10099337B /* Genre.swift */,
+				9F12ACE12804C85C0099337B /* MainButton.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		9F93576027F718E8007B54B5 = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +93,7 @@
 		9F93576B27F718E8007B54B5 /* MovieChooser */ = {
 			isa = PBXGroup;
 			children = (
+				9F12ACDE2804BF970099337B /* Models */,
 				9F12AC6B27FB5B6D0099337B /* Cells */,
 				9FA26B3527FB014000010907 /* Views */,
 				9F93578327F72187007B54B5 /* Storyboards */,
@@ -215,8 +229,10 @@
 				9F93576F27F718E8007B54B5 /* SceneDelegate.swift in Sources */,
 				9F12ACDD28036CAF0099337B /* GenreListViewController.swift in Sources */,
 				9F12AC7A27FDC5040099337B /* MainViewCell.swift in Sources */,
+				9F12ACE22804C85C0099337B /* MainButton.swift in Sources */,
 				9F12ACD12801C5260099337B /* GenreTableViewController.swift in Sources */,
 				9F12AC6F27FC3F910099337B /* MainCollectionViewController.swift in Sources */,
+				9F12ACE02804BFB10099337B /* Genre.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

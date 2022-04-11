@@ -9,11 +9,11 @@ import UIKit
 
 class GenreListViewController: UITableViewController {
     
-    var genre: String!
+    var genre: Genre!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = genre
+        title = genre.name
         
         setupAppearance()
     }

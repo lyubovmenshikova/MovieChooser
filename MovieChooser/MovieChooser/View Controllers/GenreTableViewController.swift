@@ -13,7 +13,8 @@ class GenreTableViewController: UITableViewController {
         return .darkContent
     }
 
-    var genres = ["Комедия", "Драма", "Боевик", "Приключения", "Мелодрама", "Детектив", "Фантастика", "Ужасы", "Семейный", "Мультфильм", "Триллер", "Военный", "Криминал", "Мюзикл", "Документальный", "История"]
+    var genres = Genre.getGenres()
+ 
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -45,9 +46,7 @@ class GenreTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GenreViewCell", for: indexPath) as! GenreViewCell
         let genre = genres[indexPath.row]
-        cell.genreLabel.text = genre
-        cell.genreImageView.image = UIImage(named: genre)
-
+        cell.configure(with: genre)
         return cell
     }
     

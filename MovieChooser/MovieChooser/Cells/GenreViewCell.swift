@@ -27,5 +27,10 @@ class GenreViewCell: UITableViewCell {
         genreView.layer.cornerRadius = genreView.frame.height / 2
         genreImageView.layer.cornerRadius = genreImageView.frame.height / 2
     }
+    
+    func configure(with genre: Genre) {
+        genreLabel.text = genre.name
+        genreImageView.image = genre.image
+    }
 
 }
