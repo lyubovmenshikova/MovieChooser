@@ -9,46 +9,53 @@ import UIKit
 
 class GenreListViewController: UITableViewController {
     
-
-    var networkGenresManager = NetworkGenresManager()
-    var genre: GenresData!
+    var genre: GenresData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        
         setupAppearance()
-
-        networkGenresManager.fetchCurrentFilms(for: "") { genresData in
-            DispatchQueue.main.async {
-                self.genre = genresData
-                self.tableView.reloadData()
-            }
-        }
-        
+        getFilms()
     }
     
     private func setupAppearance() {
         navigationItem.largeTitleDisplayMode = .never
         view.backgroundColor = .secondarySystemBackground
+        
+        tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
+    }
+    
+    private func getFilms() {
+        NetworkGenresManager.shared.fetchCurrentFilms(for: "") { genresData in
+            self.genre = genresData
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return genre.items.count
+        return genre?.items.count ?? 0
     }
 
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GenreListCell", for: indexPath) as! GenreListCell
-//        DispatchQueue.main.async {
-//            cell.titleFilmLabel.text = self.genre.items[indexPath.row].nameRu
-//        }
-
-   
+        let genre = genre?.items[indexPath.row]
+        cell.titleFilmLabel.text = genre?.nameRu ?? ""
+        cell.yearFilmLabel.text = "Год: \(genre?.year ?? 0)"
+        cell.ratingLabel.text = "\(genre?.ratingKinopoisk ?? 0 )"
+        
+        let stringURL = genre?.posterUrlPreview ?? ""
+        guard let imageURL = URL(string: stringURL),
+        let imageData = try? Data(contentsOf: imageURL) else {return cell }
+        cell.filmImage.image = UIImage(data: imageData)
+        
         return cell
     }
     

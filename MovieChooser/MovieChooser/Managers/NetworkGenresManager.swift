@@ -9,10 +9,9 @@ import Foundation
 
 class NetworkGenresManager {
     
-    //клоужер в который кладем данные из функции где их получаем
-    var onCompletion: ((GenresData) -> Void)?
+    static let shared = NetworkGenresManager()
     
-
+    private init() {}
     
     func fetchCurrentFilms(for genre: String, completion: @escaping (GenresData) -> Void) {
         
@@ -28,7 +27,10 @@ class NetworkGenresManager {
             if let data = data {
                 do {
                     let films = try decoder.decode(GenresData.self, from: data)
-                    completion(films)
+                    // выходим из фонового потока в главный
+                    DispatchQueue.main.async {
+                        completion(films)
+                    }
                 } catch let error as NSError {
                     print(error.localizedDescription)
                 }

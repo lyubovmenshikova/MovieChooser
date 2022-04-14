@@ -24,7 +24,7 @@ class GenreViewCell: UITableViewCell {
         genreImageView.backgroundColor = .secondarySystemBackground
         genreView.layer.borderColor = UIColor(red: 176/255, green: 88/255, blue: 138/255, alpha: 1).cgColor
         genreView.layer.borderWidth = 0.5
-        genreView.layer.cornerRadius = genreView.frame.height / 2
+        genreView.layer.cornerRadius = 16
         genreImageView.layer.cornerRadius = genreImageView.frame.height / 2
     }
     
