@@ -9,35 +9,52 @@ import UIKit
 
 class GenreListViewController: UITableViewController {
     
-    var genre: Genre!
 
+    var networkGenresManager = NetworkGenresManager()
+    var genre: GenresData!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = genre.name
+    
         
         setupAppearance()
+
+        networkGenresManager.fetchCurrentFilms(for: "") { genresData in
+            DispatchQueue.main.async {
+                self.genre = genresData
+                self.tableView.reloadData()
+            }
+        }
+        
     }
     
     private func setupAppearance() {
         navigationItem.largeTitleDisplayMode = .never
         view.backgroundColor = .secondarySystemBackground
     }
+    
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return genre.items.count
     }
 
-    /*
+
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GenreListCell", for: indexPath) as! GenreListCell
+//        DispatchQueue.main.async {
+//            cell.titleFilmLabel.text = self.genre.items[indexPath.row].nameRu
+//        }
 
-        // Configure the cell...
-
+   
         return cell
     }
-    */
+    
+    
+    
+    
 
     /*
     // Override to support conditional editing of the table view.

@@ -61,7 +61,7 @@ class GenreTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
         let destinationVC = segue.destination as! GenreListViewController
-        destinationVC.genre = genres[indexPath.row]
+       // destinationVC.genre = genres[indexPath.row]
     }
 
 
