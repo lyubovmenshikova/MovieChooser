@@ -163,17 +163,17 @@
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="JAZ-o0-plP">
-                                                    <rect key="frame" x="140" y="28.5" width="198" height="61"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="JAZ-o0-plP">
+                                                    <rect key="frame" x="135" y="0.0" width="203" height="118"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWI-3q-wAZ">
-                                                            <rect key="frame" x="78.5" y="0.0" width="41.5" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="203" height="56.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIS-gP-Kzu">
-                                                            <rect key="frame" x="78.5" y="40.5" width="41.5" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="58.5" width="203" height="59.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -187,11 +187,12 @@
                                                 <constraint firstItem="2Qx-Ur-Ofs" firstAttribute="top" secondItem="L9U-QS-atY" secondAttribute="top" id="99r-xm-0TU"/>
                                                 <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="xpb-UK-AaZ" secondAttribute="trailing" constant="217.5" id="Cry-H6-ZT4"/>
                                                 <constraint firstItem="2Qx-Ur-Ofs" firstAttribute="leading" secondItem="L9U-QS-atY" secondAttribute="leading" id="MLL-no-PWb"/>
-                                                <constraint firstItem="JAZ-o0-plP" firstAttribute="centerY" secondItem="2Qx-Ur-Ofs" secondAttribute="centerY" id="YeU-J2-0ce"/>
                                                 <constraint firstAttribute="trailing" secondItem="JAZ-o0-plP" secondAttribute="trailing" constant="5" id="azK-K0-2SG"/>
                                                 <constraint firstItem="2Qx-Ur-Ofs" firstAttribute="centerY" secondItem="L9U-QS-atY" secondAttribute="centerY" id="eba-AX-fpX"/>
-                                                <constraint firstItem="JAZ-o0-plP" firstAttribute="leading" secondItem="2Qx-Ur-Ofs" secondAttribute="trailing" constant="10" id="f05-tf-aPg"/>
+                                                <constraint firstItem="JAZ-o0-plP" firstAttribute="top" secondItem="L9U-QS-atY" secondAttribute="top" id="enV-9G-Bmd"/>
+                                                <constraint firstItem="JAZ-o0-plP" firstAttribute="leading" secondItem="2Qx-Ur-Ofs" secondAttribute="trailing" constant="5" id="f05-tf-aPg"/>
                                                 <constraint firstItem="xpb-UK-AaZ" firstAttribute="leading" secondItem="L9U-QS-atY" secondAttribute="leading" constant="95" id="ixS-ie-g1E"/>
+                                                <constraint firstAttribute="bottom" secondItem="JAZ-o0-plP" secondAttribute="bottom" id="tFL-ox-I7Z"/>
                                                 <constraint firstAttribute="bottom" secondItem="2Qx-Ur-Ofs" secondAttribute="bottom" id="vUs-17-3qM"/>
                                             </constraints>
                                         </view>

@@ -9,7 +9,8 @@ import UIKit
 
 class GenreListViewController: UITableViewController {
     
-    var genre: GenresData?
+    var genresData: GenresData?
+    var idNumber: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +28,12 @@ class GenreListViewController: UITableViewController {
     }
     
     private func getFilms() {
-        NetworkGenresManager.shared.fetchCurrentFilms(for: "") { genresData in
-            self.genre = genresData
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+        if let idNumber = idNumber {
+            NetworkGenresManager.shared.fetchCurrentFilms(for: idNumber) { genresData in
+                self.genresData = genresData
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
         }
     }
@@ -39,14 +42,14 @@ class GenreListViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return genre?.items.count ?? 0
+        return genresData?.items.count ?? 0
     }
 
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GenreListCell", for: indexPath) as! GenreListCell
-        let genre = genre?.items[indexPath.row]
+        let genre = genresData?.items[indexPath.row]
         cell.titleFilmLabel.text = genre?.nameRu ?? ""
         cell.yearFilmLabel.text = "Год: \(genre?.year ?? 0)"
         cell.ratingLabel.text = "\(genre?.ratingKinopoisk ?? 0 )"

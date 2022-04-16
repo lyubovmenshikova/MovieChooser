@@ -13,9 +13,9 @@ class NetworkGenresManager {
     
     private init() {}
     
-    func fetchCurrentFilms(for genre: String, completion: @escaping (GenresData) -> Void) {
+    func fetchCurrentFilms(for idNumber: String, completion: @escaping (GenresData) -> Void) {
         
-        guard let url = URL(string: "https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=13&order=NUM_VOTE&type=FILM&ratingFrom=8&ratingTo=10&yearFrom=1970&yearTo=3000") else { return }
+        guard let url = URL(string: "https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=\(idNumber)&order=NUM_VOTE&type=FILM&ratingFrom=8&ratingTo=10&yearFrom=1970&yearTo=3000") else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"

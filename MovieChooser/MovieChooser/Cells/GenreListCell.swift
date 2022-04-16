@@ -25,10 +25,10 @@ class GenreListCell: UITableViewCell {
     
     private func setupCell () {
         titleFilmLabel.textColor = UIColor(red: 176/255, green: 88/255, blue: 138/255, alpha: 1)
-        titleFilmLabel.font = UIFont(name: "TrebuchetMS", size: 20)
+        titleFilmLabel.font = UIFont(name: "TrebuchetMS", size: 21)
         
         yearFilmLabel.textColor = .red
-        yearFilmLabel.font = UIFont(name: "TrebuchetMS", size: 14)
+        yearFilmLabel.font = UIFont(name: "TrebuchetMS", size: 13)
         
         ratingLabel.backgroundColor = UIColor(red: 176/255, green: 88/255, blue: 138/255, alpha: 1)
         ratingLabel.layer.masksToBounds = true
