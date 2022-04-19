@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct GenresData: Decodable {
-    let items: [Item]
+struct GenresData<T : Decodable> : Decodable {
+    var totalPages: Int
+    var items: [Item]
 }
 
 struct Item: Decodable {

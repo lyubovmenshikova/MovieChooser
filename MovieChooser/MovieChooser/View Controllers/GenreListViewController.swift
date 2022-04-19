@@ -9,7 +9,10 @@ import UIKit
 
 class GenreListViewController: UITableViewController {
     
-    var genresData: GenresData?
+    var films = [Item]()
+    var totalPage = 1
+    var currentPage = 1
+    
     var idNumber: String?
     
     //вью для Loading текста и спиннера
@@ -37,8 +40,10 @@ class GenreListViewController: UITableViewController {
     
     private func getFilms() {
         if let idNumber = idNumber {
-            NetworkGenresManager.shared.fetchCurrentFilms(for: idNumber) { genresData in
-                self.genresData = genresData
+            NetworkGenresManager.shared.fetchCurrentFilms(for: idNumber, page: 1) { genreData in
+                self.films.append(contentsOf: genreData.items)
+                self.totalPage = genreData.totalPages
+                print(self.films.count)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                     self.loadingView.removeLoadingScreen()
@@ -51,16 +56,38 @@ class GenreListViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return genresData?.items.count ?? 0
+        return films.count
     }
     
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GenreListCell", for: indexPath) as! GenreListCell
-        guard let genre = genresData?.items[indexPath.row] else { return cell }
-        cell.configure(with: genre)
-        return cell
+        if currentPage < totalPage && indexPath.row == films.count - 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "loading")
+            return cell!
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "GenreListCell", for: indexPath) as! GenreListCell
+            let genre = films[indexPath.row]
+            cell.configure(with: genre)
+            return cell
+        }
+        
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if currentPage < totalPage && indexPath.row == films.count - 1 {
+            currentPage += 1
+            NetworkGenresManager.shared.fetchCurrentFilms(for: idNumber ?? "", page: currentPage) { genreData in
+                self.films.append(contentsOf: genreData.items)
+                self.totalPage = genreData.totalPages
+                print(self.films.count)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+       
     }
     
     
@@ -113,4 +140,3 @@ class GenreListViewController: UITableViewController {
      */
     
 }
-

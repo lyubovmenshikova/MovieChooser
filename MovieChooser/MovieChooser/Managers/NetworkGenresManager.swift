@@ -13,9 +13,9 @@ class NetworkGenresManager {
     
     private init() {}
     
-    func fetchCurrentFilms(for idNumber: String, completion: @escaping (GenresData) -> Void) {
+    func fetchCurrentFilms(for idNumber: String, page: Int, completion: @escaping (GenresData<[Item]>) -> Void) {
         
-        guard let url = URL(string: "https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=\(idNumber)&order=NUM_VOTE&type=FILM&ratingFrom=8&ratingTo=10&yearFrom=1970&yearTo=3000") else { return }
+        guard let url = URL(string: "https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=\(idNumber)&order=NUM_VOTE&type=FILM&ratingFrom=8&ratingTo=10&yearFrom=1970&yearTo=3000&page=\(page)") else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -26,21 +26,17 @@ class NetworkGenresManager {
             let decoder = JSONDecoder()
             if let data = data {
                 do {
-                    let films = try decoder.decode(GenresData.self, from: data)
+                    let genreData = try decoder.decode(GenresData<[Item]>.self, from: data)
                     // выходим из фонового потока в главный
                     DispatchQueue.main.async {
-                        completion(films)
+                        completion(genreData)
                     }
                 } catch let error as NSError {
                     print(error.localizedDescription)
                 }
             }
         }.resume()
-    
-        
     }
-
-    
     
 }
 

@@ -212,6 +212,23 @@
                                     <outlet property="yearFilmLabel" destination="YIS-gP-Kzu" id="o6a-Pz-8jo"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="loading" rowHeight="140" id="tgY-xR-R0O">
+                                <rect key="frame" x="0.0" y="184.5" width="375" height="140"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tgY-xR-R0O" id="rpa-c7-3Ld">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="h4W-7f-Ph2">
+                                            <rect key="frame" x="169" y="51.5" width="37" height="37"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="h4W-7f-Ph2" firstAttribute="centerY" secondItem="rpa-c7-3Ld" secondAttribute="centerY" id="J3W-Iy-wDc"/>
+                                        <constraint firstItem="h4W-7f-Ph2" firstAttribute="centerX" secondItem="rpa-c7-3Ld" secondAttribute="centerX" id="Sct-g4-vWJ"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="Kfx-ya-gEK" id="8Km-m7-wXo"/>
