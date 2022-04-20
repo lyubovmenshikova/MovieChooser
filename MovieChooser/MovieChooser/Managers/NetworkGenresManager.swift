@@ -13,8 +13,8 @@ class NetworkGenresManager {
     
     private init() {}
     
-    func fetchCurrentFilms(for idNumber: String, page: Int, completion: @escaping (GenresData<[Item]>) -> Void) {
-        
+    func fetchCurrentFilms(for idNumber: String, page: Int, refresh: Bool = false, completion: @escaping (GenresData<[Item]>) -> Void) {
+    
         guard let url = URL(string: "https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=\(idNumber)&order=NUM_VOTE&type=FILM&ratingFrom=8&ratingTo=10&yearFrom=1970&yearTo=3000&page=\(page)") else { return }
         
         var request = URLRequest(url: url)

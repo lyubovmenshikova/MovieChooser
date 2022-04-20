@@ -21,9 +21,10 @@ class GenreListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupAppearance()
         getFilms()
+        
     }
     
     private func setupAppearance() {
@@ -43,7 +44,6 @@ class GenreListViewController: UITableViewController {
             NetworkGenresManager.shared.fetchCurrentFilms(for: idNumber, page: 1) { genreData in
                 self.films.append(contentsOf: genreData.items)
                 self.totalPage = genreData.totalPages
-                print(self.films.count)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                     self.loadingView.removeLoadingScreen()
@@ -63,8 +63,9 @@ class GenreListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if currentPage < totalPage && indexPath.row == films.count - 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "loading")
-            return cell!
+            let cell = tableView.dequeueReusableCell(withIdentifier: "loading", for: indexPath) as! GenreListFooterCell
+            cell.activityIndicator.startAnimating()
+            return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "GenreListCell", for: indexPath) as! GenreListCell
             let genre = films[indexPath.row]
@@ -90,7 +91,18 @@ class GenreListViewController: UITableViewController {
        
     }
     
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = tableView.indexPathForSelectedRow,
+        let destinationVC = segue.destination as? FilmDetailViewController else { return }
+        destinationVC.filmTitle = films[indexPath.row].nameRu
+        destinationVC.filmYear = "\(films[indexPath.row].year)"
+    }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        cell.setSelected(false, animated: true)
+    }
     
     
     
