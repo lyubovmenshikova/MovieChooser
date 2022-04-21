@@ -62,6 +62,7 @@ class GenreTableViewController: UITableViewController {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
         let destinationVC = segue.destination as! GenreListViewController
         destinationVC.idNumber = genres[indexPath.row].id
+        destinationVC.genre = genres[indexPath.row].name
     }
     
     

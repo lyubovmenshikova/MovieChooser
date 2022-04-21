@@ -17,4 +17,9 @@ struct Item: Decodable {
     let ratingKinopoisk: Double
     let year: Int
     let posterUrlPreview: String
+    let countries: [Country]
+}
+
+struct Country: Decodable {
+    let country: String
 }

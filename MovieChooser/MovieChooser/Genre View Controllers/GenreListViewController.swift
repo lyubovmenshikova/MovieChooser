@@ -13,6 +13,7 @@ class GenreListViewController: UITableViewController {
     var totalPage = 1
     var currentPage = 1
     
+    var genre: String!
     var idNumber: String?
     
     //вью для Loading текста и спиннера
@@ -30,6 +31,10 @@ class GenreListViewController: UITableViewController {
     private func setupAppearance() {
         navigationItem.largeTitleDisplayMode = .never
         view.backgroundColor = .secondarySystemBackground
+        
+        title = self.genre
+        
+        navigationController?.navigationBar.titleTextAttributes =  [.font : UIFont(name: "TrebuchetMS", size: 20) ?? "",.foregroundColor : UIColor(red: 176/255, green: 88/255, blue: 138/255, alpha: 1)]
         
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
@@ -96,7 +101,9 @@ class GenreListViewController: UITableViewController {
         guard let indexPath = tableView.indexPathForSelectedRow,
         let destinationVC = segue.destination as? FilmDetailViewController else { return }
         destinationVC.filmTitle = films[indexPath.row].nameRu
-        destinationVC.filmYear = "\(films[indexPath.row].year)"
+        let countries = films[indexPath.row].countries
+        destinationVC.filmYear = countries.first?.country
+        destinationVC.imageURL = films[indexPath.row].posterUrlPreview
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -141,14 +148,5 @@ class GenreListViewController: UITableViewController {
      }
      */
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
