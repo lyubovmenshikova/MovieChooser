@@ -46,8 +46,13 @@ class MainCollectionViewController: UICollectionViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toGenre" {
-            guard let destinationVC = segue.destination as? GenreTableViewController else { return }
+        switch segue.identifier {
+        case "toGenre":
+            let _ = segue.destination as! GenreTableViewController
+        case "toActor":
+            let _ = segue.destination as! ActorSearchViewController
+        default:
+            break
         }
     }
     
@@ -70,6 +75,8 @@ class MainCollectionViewController: UICollectionViewController {
         switch indexPath.item {
         case 0:
             performSegue(withIdentifier: "toGenre", sender: nil)
+        case 1:
+            performSegue(withIdentifier: "toActor", sender: nil)
         default: break
         }
     }
