@@ -22,6 +22,7 @@
 		9F12ACF128109DA00099337B /* GenreListFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12ACF028109DA00099337B /* GenreListFooterCell.swift */; };
 		9F12ACF328109F280099337B /* FilmDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12ACF228109F270099337B /* FilmDetailViewController.swift */; };
 		9F12ACF6281347AB0099337B /* ActorSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12ACF5281347AB0099337B /* ActorSearchViewController.swift */; };
+		9F12ACF828172B260099337B /* ActorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12ACF728172B250099337B /* ActorListViewController.swift */; };
 		9F93576D27F718E8007B54B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F93576C27F718E8007B54B5 /* AppDelegate.swift */; };
 		9F93576F27F718E8007B54B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F93576E27F718E8007B54B5 /* SceneDelegate.swift */; };
 		9F93577427F718E8007B54B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F93577227F718E8007B54B5 /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		9F12ACF028109DA00099337B /* GenreListFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreListFooterCell.swift; sourceTree = "<group>"; };
 		9F12ACF228109F270099337B /* FilmDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmDetailViewController.swift; sourceTree = "<group>"; };
 		9F12ACF5281347AB0099337B /* ActorSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorSearchViewController.swift; sourceTree = "<group>"; };
+		9F12ACF728172B250099337B /* ActorListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorListViewController.swift; sourceTree = "<group>"; };
 		9F93576927F718E8007B54B5 /* MovieChooser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieChooser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F93576C27F718E8007B54B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F93576E27F718E8007B54B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				9F12ACF5281347AB0099337B /* ActorSearchViewController.swift */,
+				9F12ACF728172B250099337B /* ActorListViewController.swift */,
 			);
 			path = "Actor View Controllers";
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				9F93576F27F718E8007B54B5 /* SceneDelegate.swift in Sources */,
 				9F12ACF128109DA00099337B /* GenreListFooterCell.swift in Sources */,
 				9F12ACE72806A2550099337B /* GenresData.swift in Sources */,
+				9F12ACF828172B260099337B /* ActorListViewController.swift in Sources */,
 				9F12ACDD28036CAF0099337B /* GenreListViewController.swift in Sources */,
 				9F12ACF6281347AB0099337B /* ActorSearchViewController.swift in Sources */,
 				9F12AC7A27FDC5040099337B /* MainViewCell.swift in Sources */,

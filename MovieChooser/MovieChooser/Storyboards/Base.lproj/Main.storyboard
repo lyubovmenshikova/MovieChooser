@@ -56,7 +56,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QVV-an-J1h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2894" y="732"/>
+            <point key="canvasLocation" x="2796" y="785"/>
         </scene>
         <!--Actor Search View Controller-->
         <scene sceneID="gRU-on-3RT">
@@ -88,6 +88,9 @@
                                         </fragment>
                                     </attributedString>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="searchButtonPressed:" destination="lcc-WS-5o1" eventType="touchUpInside" id="NIO-f8-Zyb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ivv-V3-XVa"/>
@@ -102,10 +105,44 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Gab-LI-IW2"/>
+                    <connections>
+                        <outlet property="searchButton" destination="edT-Tz-ak3" id="ASI-oY-L38"/>
+                        <outlet property="searchTextField" destination="c20-Ou-5Ow" id="OZT-Yf-gUR"/>
+                        <segue destination="Soq-br-lds" kind="show" identifier="toActorFilm" id="J3i-Mb-brG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jRy-1x-Q5M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3637.5999999999999" y="662.51874062968523"/>
+        </scene>
+        <!--Actor List View Controller-->
+        <scene sceneID="ZVB-Ro-zIA">
+            <objects>
+                <tableViewController id="Soq-br-lds" customClass="ActorListViewController" customModule="MovieChooser" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="LGK-r8-ZQ1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="0Sl-Iz-9R7">
+                                <rect key="frame" x="0.0" y="44.5" width="375" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Sl-Iz-9R7" id="YRl-Qv-HIQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Soq-br-lds" id="Eqd-c5-Fn1"/>
+                            <outlet property="delegate" destination="Soq-br-lds" id="jMD-sO-JAf"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Znc-xK-A3e"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="txe-fF-K8Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4444" y="663"/>
         </scene>
         <!--Genre Table View Controller-->
         <scene sceneID="Yf3-g0-dFm">
@@ -304,7 +341,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bzZ-Ne-2Mz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4445.6000000000004" y="-73.313343328335833"/>
+            <point key="canvasLocation" x="4444" y="-73"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8gx-UO-AKK">
@@ -322,7 +359,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcf-sJ-Pm1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2116" y="731.78410794602701"/>
+            <point key="canvasLocation" x="2050" y="785"/>
         </scene>
         <!--Film Detail View Controller-->
         <scene sceneID="gmg-pw-eOI">
