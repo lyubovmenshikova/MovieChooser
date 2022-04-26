@@ -16,7 +16,7 @@ class GenreListCell: UITableViewCell {
     @IBOutlet var yearFilmLabel: UILabel!
     @IBOutlet var genreListView: UIView!
     
-
+    var mainColor = UIColor(red: 176/255, green: 88/255, blue: 138/255, alpha: 1)
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,17 +25,17 @@ class GenreListCell: UITableViewCell {
     }
     
     private func setupCell () {
-        titleFilmLabel.textColor = UIColor(red: 176/255, green: 88/255, blue: 138/255, alpha: 1)
+        titleFilmLabel.textColor = mainColor
         titleFilmLabel.font = UIFont(name: "TrebuchetMS", size: 18)
         
         yearFilmLabel.textColor = .red
         yearFilmLabel.font = UIFont(name: "TrebuchetMS", size: 12)
         
-        ratingLabel.backgroundColor = UIColor(red: 176/255, green: 88/255, blue: 138/255, alpha: 1)
+        ratingLabel.backgroundColor = mainColor
         ratingLabel.layer.masksToBounds = true
         ratingLabel.layer.cornerRadius = 5
         
-        genreListView.layer.borderColor = UIColor(red: 176/255, green: 88/255, blue: 138/255, alpha: 1).cgColor
+        genreListView.layer.borderColor = mainColor.cgColor
         genreListView.layer.borderWidth = 0.5
         genreListView.layer.cornerRadius = 16
         filmImage.layer.cornerRadius = 16

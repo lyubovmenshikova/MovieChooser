@@ -1,21 +1,21 @@
 //
-//  NetworkGenresManager.swift
+//  NetworkActorManager.swift
 //  MovieChooser
 //
-//  Created by Lyubov Menshikova on 13.04.2022.
+//  Created by Lyubov Menshikova on 26.04.2022.
 //
 
 import Foundation
 
-class NetworkGenresManager {
+class NetworkActorManager {
     
-    static let shared = NetworkGenresManager()
+    static let shared = NetworkActorManager()
     
     private init() {}
     
-    func fetchCurrentFilms(for idNumber: String, page: Int, completion: @escaping (GenresData<[Item]>) -> Void) {
+    func fetchCurrentActors(for name: String, completion: @escaping (ActorsData<[Actors]>) -> Void) {
     
-        guard let url = URL(string: "https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=\(idNumber)&order=NUM_VOTE&type=FILM&ratingFrom=8&ratingTo=10&yearFrom=1970&yearTo=3000&page=\(page)") else { return }
+        guard let url = URL(string: "https://kinopoiskapiunofficial.tech/api/v1/persons?name=\(name)") else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -26,10 +26,10 @@ class NetworkGenresManager {
             let decoder = JSONDecoder()
             if let data = data {
                 do {
-                    let genreData = try decoder.decode(GenresData<[Item]>.self, from: data)
+                    let actorsData = try decoder.decode(ActorsData<[Actors]>.self, from: data)
                     // выходим из фонового потока в главный
                     DispatchQueue.main.async {
-                        completion(genreData)
+                        completion(actorsData)
                     }
                 } catch let error as NSError {
                     print(error.localizedDescription)
@@ -37,10 +37,4 @@ class NetworkGenresManager {
             }
         }.resume()
     }
-    
 }
-
-
-
-
-

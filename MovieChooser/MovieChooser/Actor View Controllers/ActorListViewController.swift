@@ -8,43 +8,71 @@
 import UIKit
 
 class ActorListViewController: UITableViewController {
-
+    
+    var actorName: String?
+    var actors = [Actors]()
+    let loadingView = LoadingView()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setupAppearance()
+        getActors()
     }
-
+    
+    private func setupAppearance() {
+        navigationItem.largeTitleDisplayMode = .never
+        view.backgroundColor = .secondarySystemBackground
+        
+        
+        navigationController?.navigationBar.titleTextAttributes =  [.font : UIFont(name: "TrebuchetMS", size: 20) ?? "",.foregroundColor : UIColor(red: 17/255, green: 188/255, blue: 214/255, alpha: 1)]
+        
+        tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
+        
+        loadingView.setLoadingScreen(x: (self.tableView.frame.width / 2), y: (self.tableView.frame.height / 2) - (self.navigationController?.navigationBar.frame.height)!)
+        tableView.addSubview(loadingView)
+    }
+    
+    private func getActors() {
+        if let actorName = actorName {
+            NetworkActorManager.shared.fetchCurrentActors(for: actorName) { actorsData in
+                self.actors.append(contentsOf: actorsData.items)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.loadingView.removeLoadingScreen()
+                }
+            }
+        }
+    }
+    
+    
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return actors.count
     }
-
-    /*
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ActorsListViewCell", for: indexPath) as! ActorsListViewCell
+        let actor = actors[indexPath.row]
+        cell.configure(with: actor)
         return cell
     }
-    */
-
-
+    
+    
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

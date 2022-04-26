@@ -26,6 +26,7 @@ class ActorSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        searchTextField.delegate = self
         setupAppearance()
     }
     
@@ -46,12 +47,17 @@ class ActorSearchViewController: UIViewController {
     @IBAction func searchButtonPressed(_ sender: UIButton) {
         guard let name = searchTextField.text else { return }
         if name.isEmpty {
-            showAlertController(with: "Ошибка", message: "Заполните поле")
+            self.showAlertController(with: "Ошибка", message: "Заполните поле")
             return
         } else {
             performSegue(withIdentifier: "toActorFilm", sender: nil)
         }
     }
+    
+
+}
+
+extension ActorSearchViewController {
     
     private func showAlertController(with title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -61,5 +67,24 @@ class ActorSearchViewController: UIViewController {
         present(alertController, animated: true)
     }
     
+    //MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destinationVC = segue.destination as? ActorListViewController else { return }
+        destinationVC.actorName = searchTextField.text
+    }
+    
+}
 
+extension ActorSearchViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if string == " " { return true }
+            if string.rangeOfCharacter(from: .letters) != nil || string == "" {
+                return true
+            }else {
+                self.showAlertController(with: "Ошибка", message: "Пожалуйста введите текстовое значение")
+                return false
+            }
+        
+    }
 }
