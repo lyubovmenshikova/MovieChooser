@@ -51,6 +51,7 @@ class ActorSearchViewController: UIViewController {
             return
         } else {
             performSegue(withIdentifier: "toActorFilm", sender: nil)
+            searchTextField.text = nil
         }
     }
     
