@@ -77,7 +77,6 @@ class GenreListViewController: UITableViewController {
             cell.configure(with: genre)
             return cell
         }
-        
     }
     
     

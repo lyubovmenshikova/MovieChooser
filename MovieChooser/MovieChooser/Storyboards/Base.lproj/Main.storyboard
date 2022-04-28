@@ -204,70 +204,106 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="150" id="ey9-TI-bEd">
-                                <rect key="frame" x="0.0" y="44.5" width="375" height="150"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActorDetailCell" rowHeight="180" id="ey9-TI-bEd" customClass="ActorDetailCell" customModule="MovieChooser" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="375" height="180"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ey9-TI-bEd" id="nbg-Et-g2i">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gd4-AP-kX1">
-                                            <rect key="frame" x="16" y="11" width="343" height="128"/>
+                                            <rect key="frame" x="16" y="11" width="343" height="158"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="mGN-aD-zmq">
-                                                    <rect key="frame" x="8" y="4" width="327" height="120"/>
+                                                    <rect key="frame" x="8" y="4" width="327" height="150"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="whV-ih-aad">
-                                                            <rect key="frame" x="0.0" y="0.0" width="106" height="120"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="whV-ih-aad">
+                                                            <rect key="frame" x="0.0" y="0.0" width="106" height="150"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cn-E3-ZVi">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="106" height="20"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cn-E3-ZVi">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="106" height="25"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="106" id="YlW-qW-sPG"/>
                                                                         <constraint firstAttribute="height" constant="20" id="mgu-rG-n5C"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <attributedString key="attributedText">
+                                                                        <fragment content="Имя:">
+                                                                            <attributes>
+                                                                                <color key="NSBackgroundColor" red="1" green="1" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                <color key="NSColor" red="0.0018515301997284162" green="0.023763219533714228" blue="0.032374526515151492" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                <font key="NSFont" size="15" name="TrebuchetMS"/>
+                                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyO-LA-O8x">
-                                                                    <rect key="frame" x="0.0" y="26" width="106" height="20"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyO-LA-O8x">
+                                                                    <rect key="frame" x="0.0" y="31" width="106" height="25.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="Jce-oV-s25"/>
                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="106" id="aSw-La-UQo"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <attributedString key="attributedText">
+                                                                        <fragment content="Пол:">
+                                                                            <attributes>
+                                                                                <color key="NSColor" red="0.001399084367863035" green="0.017956363328339851" blue="0.024463383838383868" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                <font key="NSFont" size="15" name="TrebuchetMS"/>
+                                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Hd-ha-eEe">
-                                                                    <rect key="frame" x="0.0" y="52" width="106" height="20"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Hd-ha-eEe">
+                                                                    <rect key="frame" x="0.0" y="62.5" width="106" height="25"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="106" id="6Gd-PP-V2g"/>
                                                                         <constraint firstAttribute="height" constant="20" id="CgV-yf-Sz2"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <attributedString key="attributedText">
+                                                                        <fragment content="Дата рождения:">
+                                                                            <attributes>
+                                                                                <color key="NSColor" red="0.0020410835656969554" green="0.026196017145940904" blue="0.035688920454545414" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                <font key="NSFont" size="13" name="TrebuchetMS"/>
+                                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7d7-Ep-1BG">
-                                                                    <rect key="frame" x="0.0" y="78" width="106" height="20"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7d7-Ep-1BG">
+                                                                    <rect key="frame" x="0.0" y="93.5" width="106" height="25.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="CTg-0Y-4FR"/>
                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="106" id="cSf-Xm-zCV"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <attributedString key="attributedText">
+                                                                        <fragment content="Место рождения:">
+                                                                            <attributes>
+                                                                                <color key="NSColor" red="0.001853786787418518" green="0.02379218141005026" blue="0.032413983585858563" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                <font key="NSFont" size="13" name="TrebuchetMS"/>
+                                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQp-1Z-JcC">
-                                                                    <rect key="frame" x="0.0" y="104" width="106" height="16"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQp-1Z-JcC">
+                                                                    <rect key="frame" x="0.0" y="125" width="106" height="25"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="X9k-h3-uFR"/>
                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="106" id="kKG-ib-0LX"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <attributedString key="attributedText">
+                                                                        <fragment content="Возраст:">
+                                                                            <attributes>
+                                                                                <color key="NSColor" red="0.0020207742764860397" green="0.025935360258916608" blue="0.035333806818181768" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                <font key="NSFont" size="15" name="TrebuchetMS"/>
+                                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -275,54 +311,54 @@
                                                                 <constraint firstAttribute="width" constant="106" id="90P-pW-xz4"/>
                                                             </constraints>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="iTm-Zg-Ezi">
-                                                            <rect key="frame" x="128" y="0.0" width="199" height="120"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="iTm-Zg-Ezi">
+                                                            <rect key="frame" x="128" y="0.0" width="199" height="150"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exc-5E-Pln">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="199" height="20"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exc-5E-Pln">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="199" height="25"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="190" id="a7z-Id-zy4"/>
+                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="a7z-Id-zy4"/>
                                                                         <constraint firstAttribute="height" constant="20" id="n3r-aq-FrD"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2X-mb-o69">
-                                                                    <rect key="frame" x="0.0" y="26" width="199" height="20"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2X-mb-o69">
+                                                                    <rect key="frame" x="0.0" y="31" width="199" height="25.5"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="190" id="9oe-NE-Mwe"/>
+                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="9oe-NE-Mwe"/>
                                                                         <constraint firstAttribute="height" constant="20" id="FQH-Gt-VAz"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRm-ld-anN">
-                                                                    <rect key="frame" x="0.0" y="52" width="199" height="20"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRm-ld-anN">
+                                                                    <rect key="frame" x="0.0" y="62.5" width="199" height="25"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="190" id="3pQ-qe-o2R"/>
+                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="3pQ-qe-o2R"/>
                                                                         <constraint firstAttribute="height" constant="20" id="gYo-Lr-Yv8"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFS-JV-XlC">
-                                                                    <rect key="frame" x="0.0" y="78" width="199" height="20"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFS-JV-XlC">
+                                                                    <rect key="frame" x="0.0" y="93.5" width="199" height="25.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="Fxr-Qg-UUJ"/>
-                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="190" id="RJU-YH-xBk"/>
+                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="RJU-YH-xBk"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OsV-Oh-yUG">
-                                                                    <rect key="frame" x="0.0" y="104" width="199" height="16"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OsV-Oh-yUG">
+                                                                    <rect key="frame" x="0.0" y="125" width="199" height="25"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="mhR-r2-S7X"/>
-                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="190" id="yrw-Y8-yGM"/>
+                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="yrw-Y8-yGM"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -349,9 +385,17 @@
                                         <constraint firstItem="gd4-AP-kX1" firstAttribute="top" secondItem="nbg-Et-g2i" secondAttribute="topMargin" id="x35-9f-ocr"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="actorDetailView" destination="gd4-AP-kX1" id="1HZ-uS-W3c"/>
+                                    <outlet property="actorNameLabel" destination="exc-5E-Pln" id="lRf-PR-dvg"/>
+                                    <outlet property="ageLabel" destination="OsV-Oh-yUG" id="VZ7-YT-YMK"/>
+                                    <outlet property="dateOfBirthLabel" destination="jRm-ld-anN" id="qa0-R5-FhG"/>
+                                    <outlet property="placeOfBirthLabel" destination="VFS-JV-XlC" id="Ipz-HA-ONj"/>
+                                    <outlet property="sexLabel" destination="b2X-mb-o69" id="iQL-x5-RY8"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="140" id="Yy3-VM-XKp">
-                                <rect key="frame" x="0.0" y="194.5" width="375" height="140"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilmsListCell" rowHeight="140" id="Yy3-VM-XKp" customClass="FilmsListCell" customModule="MovieChooser" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="224.5" width="375" height="140"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Yy3-VM-XKp" id="MXc-xe-vQ2">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
@@ -388,24 +432,38 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Deo-fp-BID">
                                                             <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffa-2Z-pPd">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffa-2Z-pPd">
                                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="25"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="77Z-GI-QjN"/>
                                                                         <constraint firstAttribute="height" constant="25" id="t7c-Lb-MVz"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <attributedString key="attributedText">
+                                                                        <fragment content="Жанр:">
+                                                                            <attributes>
+                                                                                <color key="NSColor" red="0.066666666666666666" green="0.73725490196078436" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                <font key="NSFont" size="17" name="TrebuchetMS"/>
+                                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TSf-TC-BFo">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TSf-TC-BFo">
                                                                     <rect key="frame" x="0.0" y="25" width="60" height="25"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="MPl-X0-uSD"/>
                                                                         <constraint firstAttribute="height" constant="25" id="oFb-sS-clc"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <attributedString key="attributedText">
+                                                                        <fragment content="Год:">
+                                                                            <attributes>
+                                                                                <color key="NSColor" red="0.066666666666666666" green="0.73725490196078436" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                <font key="NSFont" size="17" name="TrebuchetMS"/>
+                                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -462,6 +520,14 @@
                                         <constraint firstItem="Mvh-6m-41W" firstAttribute="leading" secondItem="MXc-xe-vQ2" secondAttribute="leadingMargin" id="mMi-WA-nzb"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="filmIconImage" destination="vhH-gx-VgO" id="iyJ-oC-Nxc"/>
+                                    <outlet property="filmNameLabel" destination="khn-9C-Abi" id="2ui-nm-qP7"/>
+                                    <outlet property="filmsListView" destination="Mvh-6m-41W" id="mTl-sA-SrA"/>
+                                    <outlet property="genreLabel" destination="bxQ-CO-RpM" id="hNw-wY-ce7"/>
+                                    <outlet property="ratingLabel" destination="Xtb-O3-Jm7" id="2hS-lF-bLZ"/>
+                                    <outlet property="yearLabel" destination="fkl-do-SmL" id="hXa-Co-VX1"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

@@ -75,8 +75,7 @@ class ActorListViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = tableView.indexPathForSelectedRow,
               let destinationVC = segue.destination as? ActorFilmsViewController else { return }
-        //destinationVC.filmTitle = films[indexPath.row].nameRu
-        
+        destinationVC.idForActor = actors[indexPath.row].kinopoiskId
     }
     
     

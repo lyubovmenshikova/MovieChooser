@@ -35,7 +35,7 @@ class ActorsListViewCell: UITableViewCell {
         actorsListView.layer.borderColor = mainColor.cgColor
         actorsListView.layer.borderWidth = 0.5
         actorsListView.layer.cornerRadius = 16
-        actorIcon.layer.cornerRadius = 16
+        //actorIcon.layer.cornerRadius = 16
         
     }
     
