@@ -77,6 +77,6 @@ class ActorListViewController: UITableViewController {
               let destinationVC = segue.destination as? ActorFilmsViewController else { return }
         destinationVC.idForActor = actors[indexPath.row].kinopoiskId
     }
-    
+
     
 }

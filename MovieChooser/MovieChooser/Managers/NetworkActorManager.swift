@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class NetworkActorManager {
     
@@ -14,8 +15,12 @@ class NetworkActorManager {
     private init() {}
     
     func fetchCurrentActors(for name: String, completion: @escaping (ActorsData<[Actors]>) -> Void) {
-    
-        guard let url = URL(string: "https://kinopoiskapiunofficial.tech/api/v1/persons?name=\(name)") else { return }
+        //кодируем параметр если придет русское слово
+        guard let nameCode = name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return}
+        
+        guard let url = URL(string: "https://kinopoiskapiunofficial.tech/api/v1/persons?name=\(nameCode)&page=1") else {
+            return
+        }
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
