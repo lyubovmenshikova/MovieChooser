@@ -62,31 +62,40 @@ class ActorFilmsViewController: UITableViewController {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FilmsListCell", for: indexPath) as! FilmsListCell
+            
             let film = films[indexPath.row]
-            cell.configure(with: film)
+            let id = film.filmId ?? 0
+            
+            NetworkFilmsByActorManager.shared.fetchFilmByActor(for: id) { filmByActor in
+                cell.configure(with: filmByActor)
+            }
+            
             return cell
         }
-    
+        
     }
+    
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 240
+            return 260
         } else {
             return 140
         }
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        cell.setSelected(false, animated: true)
+    }
     
     
-    /*
+    
      // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+         guard let indexPath = tableView.indexPathForSelectedRow,
+               let destinationVC = segue.destination as? DetailFilmByActorController else { return }
+         destinationVC.id = films[indexPath.row].filmId ?? 0
      }
-     */
     
 }

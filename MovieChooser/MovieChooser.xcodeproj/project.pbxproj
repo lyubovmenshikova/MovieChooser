@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F10CC5A281D81E7001BC1D6 /* DetailFilmByActorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F10CC59281D81E7001BC1D6 /* DetailFilmByActorController.swift */; };
 		9F12AC6F27FC3F910099337B /* MainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12AC6E27FC3F910099337B /* MainCollectionViewController.swift */; };
 		9F12AC7A27FDC5040099337B /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12AC7827FDC5040099337B /* MainViewCell.swift */; };
 		9F12AC7B27FDC5040099337B /* MainViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F12AC7927FDC5040099337B /* MainViewCell.xib */; };
@@ -32,6 +33,8 @@
 		9F1C0BDC281AA6FA006B24A2 /* NetworkActorForIDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1C0BDB281AA6FA006B24A2 /* NetworkActorForIDManager.swift */; };
 		9F1C0BDE281AA7F6006B24A2 /* ActorIdData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1C0BDD281AA7F6006B24A2 /* ActorIdData.swift */; };
 		9F280050281C0DE500DAA718 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28004F281C0DE500DAA718 /* AlertController.swift */; };
+		9F280052281CF7E100DAA718 /* NetworkFilmsByActorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F280051281CF7E100DAA718 /* NetworkFilmsByActorManager.swift */; };
+		9F280054281CF81700DAA718 /* FilmsByActorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F280053281CF81700DAA718 /* FilmsByActorData.swift */; };
 		9F93576D27F718E8007B54B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F93576C27F718E8007B54B5 /* AppDelegate.swift */; };
 		9F93576F27F718E8007B54B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F93576E27F718E8007B54B5 /* SceneDelegate.swift */; };
 		9F93577427F718E8007B54B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F93577227F718E8007B54B5 /* Main.storyboard */; };
@@ -41,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F10CC59281D81E7001BC1D6 /* DetailFilmByActorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFilmByActorController.swift; sourceTree = "<group>"; };
 		9F12AC6E27FC3F910099337B /* MainCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewController.swift; sourceTree = "<group>"; };
 		9F12AC7827FDC5040099337B /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
 		9F12AC7927FDC5040099337B /* MainViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewCell.xib; sourceTree = "<group>"; };
@@ -66,6 +70,8 @@
 		9F1C0BDB281AA6FA006B24A2 /* NetworkActorForIDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkActorForIDManager.swift; sourceTree = "<group>"; };
 		9F1C0BDD281AA7F6006B24A2 /* ActorIdData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorIdData.swift; sourceTree = "<group>"; };
 		9F28004F281C0DE500DAA718 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		9F280051281CF7E100DAA718 /* NetworkFilmsByActorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFilmsByActorManager.swift; sourceTree = "<group>"; };
+		9F280053281CF81700DAA718 /* FilmsByActorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsByActorData.swift; sourceTree = "<group>"; };
 		9F93576927F718E8007B54B5 /* MovieChooser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieChooser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F93576C27F718E8007B54B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F93576E27F718E8007B54B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +118,7 @@
 				9F12ACE42806A16B0099337B /* NetworkGenresManager.swift */,
 				9F12ACFE281824A20099337B /* NetworkActorManager.swift */,
 				9F1C0BDB281AA6FA006B24A2 /* NetworkActorForIDManager.swift */,
+				9F280051281CF7E100DAA718 /* NetworkFilmsByActorManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -122,6 +129,7 @@
 				9F12ACF5281347AB0099337B /* ActorSearchViewController.swift */,
 				9F12ACF728172B250099337B /* ActorListViewController.swift */,
 				9F1C0BD32819864C006B24A2 /* ActorFilmsViewController.swift */,
+				9F10CC59281D81E7001BC1D6 /* DetailFilmByActorController.swift */,
 			);
 			path = "Actor View Controllers";
 			sourceTree = "<group>";
@@ -132,6 +140,7 @@
 				9F12ACE62806A2550099337B /* GenresData.swift */,
 				9F12ACFA281822FB0099337B /* ActorsData.swift */,
 				9F1C0BDD281AA7F6006B24A2 /* ActorIdData.swift */,
+				9F280053281CF81700DAA718 /* FilmsByActorData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -320,6 +329,7 @@
 				9F12ACDB280305260099337B /* GenreViewCell.swift in Sources */,
 				9F1C0BD42819864C006B24A2 /* ActorFilmsViewController.swift in Sources */,
 				9F12ACFB281822FB0099337B /* ActorsData.swift in Sources */,
+				9F280054281CF81700DAA718 /* FilmsByActorData.swift in Sources */,
 				9F12ACFF281824A20099337B /* NetworkActorManager.swift in Sources */,
 				9F1C0BDC281AA6FA006B24A2 /* NetworkActorForIDManager.swift in Sources */,
 				9F93576D27F718E8007B54B5 /* AppDelegate.swift in Sources */,
@@ -330,8 +340,10 @@
 				9F1C0BD8281A7F95006B24A2 /* ActorDetailCell.swift in Sources */,
 				9F12ACF828172B260099337B /* ActorListViewController.swift in Sources */,
 				9F280050281C0DE500DAA718 /* AlertController.swift in Sources */,
+				9F10CC5A281D81E7001BC1D6 /* DetailFilmByActorController.swift in Sources */,
 				9F12ACDD28036CAF0099337B /* GenreListViewController.swift in Sources */,
 				9F12ACF6281347AB0099337B /* ActorSearchViewController.swift in Sources */,
+				9F280052281CF7E100DAA718 /* NetworkFilmsByActorManager.swift in Sources */,
 				9F12ACFD281824780099337B /* MainButton.swift in Sources */,
 				9F12AC7A27FDC5040099337B /* MainViewCell.swift in Sources */,
 				9F12ACD12801C5260099337B /* GenreTableViewController.swift in Sources */,

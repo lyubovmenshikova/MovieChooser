@@ -27,13 +27,13 @@ class FilmsListCell: UITableViewCell {
     private func setupCell () {
         
         filmNameLabel.textColor = .black
-        filmNameLabel.font = UIFont(name: "TrebuchetMS", size: 18)
+        filmNameLabel.font = UIFont(name: "TrebuchetMS", size: 17)
         
         genreLabel.textColor = mainColor
-        genreLabel.font = UIFont(name: "TrebuchetMS", size: 18)
+        genreLabel.font = UIFont(name: "TrebuchetMS", size: 15)
         
         yearLabel.textColor = mainColor
-        yearLabel.font = UIFont(name: "TrebuchetMS", size: 18)
+        yearLabel.font = UIFont(name: "TrebuchetMS", size: 15)
         
         ratingLabel.backgroundColor = mainColor
         ratingLabel.layer.masksToBounds = true
@@ -43,25 +43,31 @@ class FilmsListCell: UITableViewCell {
         filmsListView.layer.borderWidth = 0.5
         filmsListView.layer.cornerRadius = 16
         
-        //filmIconImage.layer.cornerRadius = 16
-        
     }
     
-    func configure(with film: Films ) {
+    func configure(with film: FilmsByActorData ) {
         
-        filmNameLabel.text = film.nameRu
-        ratingLabel.text = film.rating
+        filmNameLabel.text =  film.nameRu ?? ""
+        ratingLabel.text = "\(film.ratingKinopoisk ?? 0)"
+        genreLabel.text = film.genres.first?.genre ?? ""
+        yearLabel.text = "\(film.year ?? 0)"
+        
 
-//        DispatchQueue.global().async {
-//            let stringURL = actor.posterUrl
-//            guard let imageURL = URL(string: stringURL),
-//                  let imageData = try? Data(contentsOf: imageURL) else { return }
-//
-//            DispatchQueue.main.async {
-//                self.actorIcon.image = UIImage(data: imageData)
-//            }
-//        }
+        DispatchQueue.global().async {
+            guard let stringURL = film.posterUrlPreview,
+                  let imageURL = URL(string: stringURL),
+                  let imageData = try? Data(contentsOf: imageURL) else { return }
 
+            DispatchQueue.main.async {
+                self.filmIconImage.image = UIImage(data: imageData)
+            }
+        }
+
+    }
+    
+    
+    override func prepareForReuse() {
+        filmIconImage.image = nil
     }
 
 }

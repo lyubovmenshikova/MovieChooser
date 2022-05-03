@@ -20,7 +20,7 @@ class GenreListCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        
         setupCell()
     }
     
@@ -50,14 +50,19 @@ class GenreListCell: UITableViewCell {
         DispatchQueue.global().async {
             let stringURL = genre.posterUrlPreview
             guard let imageURL = URL(string: stringURL),
-            let imageData = try? Data(contentsOf: imageURL) else { return }
+                  let imageData = try? Data(contentsOf: imageURL) else { return }
             
             DispatchQueue.main.async {
                 self.filmImage.image = UIImage(data: imageData)
             }
         }
-
+        
     }
-
-
+    
+    //метод используется перед тем как ячейка будет переиспользована
+    override func prepareForReuse() {
+        filmImage.image = nil
+    }
+    
+    
 }

@@ -38,7 +38,7 @@ class ActorDetailCell: UITableViewCell {
         dateOfBirthLabel.font = UIFont(name: "TrebuchetMS", size: 16)
         
         placeOfBirthLabel.textColor = mainColor
-        placeOfBirthLabel.font = UIFont(name: "TrebuchetMS", size: 15)
+        placeOfBirthLabel.font = UIFont(name: "TrebuchetMS", size: 13)
         
         ageLabel.textColor = mainColor
         ageLabel.font = UIFont(name: "TrebuchetMS", size: 16)
@@ -49,11 +49,16 @@ class ActorDetailCell: UITableViewCell {
     
     func configure(with actor: ActorIdData ) {
         
-        actorNameLabel.text = "\(actor.nameRu ?? "") / \(actor.nameEn ?? "")"
-        sexLabel.text = actor.sex ?? ""
+        actorNameLabel.text = "\(actor.nameRu ?? "") \r\n \(actor.nameEn ?? "")"
         dateOfBirthLabel.text = actor.birthday ?? ""
         placeOfBirthLabel.text = actor.birthplace ?? ""
         ageLabel.text = "\(actor.age ?? 0)"
+        
+        // вызов отдельной структуры для перевода данных о поле на русский язык
+        if let actorData = ActorID(actorIdData: actor) {
+            sexLabel.text = actorData.sexInRussian
+        }
+       
         
     }
 

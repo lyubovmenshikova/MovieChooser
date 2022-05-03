@@ -13,8 +13,8 @@ class ActorsListViewCell: UITableViewCell {
     @IBOutlet var actorsListView: UIView!
     @IBOutlet var actorIcon: UIImageView!
     
-    @IBOutlet var actorRuName: UILabel!
-    @IBOutlet var actorEnName: UILabel!
+    @IBOutlet var actorNameLabel: UILabel!
+   
     
     var mainColor = UIColor(red: 17/255, green: 188/255, blue: 214/255, alpha: 1)
     
@@ -26,11 +26,9 @@ class ActorsListViewCell: UITableViewCell {
     
     private func setupCell () {
         
-        actorRuName.textColor = mainColor
-        actorRuName.font = UIFont(name: "TrebuchetMS", size: 18)
+        actorNameLabel.textColor = mainColor
+        actorNameLabel.font = UIFont(name: "TrebuchetMS", size: 18)
         
-        actorEnName.textColor = mainColor
-        actorEnName.font = UIFont(name: "TrebuchetMS", size: 18)
         
         actorsListView.layer.borderColor = mainColor.cgColor
         actorsListView.layer.borderWidth = 0.5
@@ -39,9 +37,7 @@ class ActorsListViewCell: UITableViewCell {
     }
     
     func configure(with actor: Actors ) {
-        
-        actorRuName.text = actor.nameRu
-        actorEnName.text = actor.nameEn
+        actorNameLabel.text = "\(actor.nameRu) \r\n \(actor.nameEn)"
         
         DispatchQueue.global().async {
             let stringURL = actor.posterUrl
@@ -53,6 +49,10 @@ class ActorsListViewCell: UITableViewCell {
             }
         }
         
+    }
+    
+    override func prepareForReuse() {
+        actorIcon.image = nil
     }
     
     
