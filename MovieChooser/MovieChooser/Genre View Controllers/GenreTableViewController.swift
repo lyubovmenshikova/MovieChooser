@@ -9,17 +9,9 @@ import UIKit
 
 class GenreTableViewController: UITableViewController {
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .darkContent
-    }
     
     var genres = Genre.getGenres()
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        navigationController?.navigationBar.barStyle = .default
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

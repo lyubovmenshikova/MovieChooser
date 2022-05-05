@@ -13,15 +13,7 @@ class ActorSearchViewController: UIViewController {
     @IBOutlet var searchButton: UIButton!
     
     var mainColor = UIColor(red: 17/255, green: 188/255, blue: 214/255, alpha: 1)
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .darkContent
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        navigationController?.navigationBar.barStyle = .default
-    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()

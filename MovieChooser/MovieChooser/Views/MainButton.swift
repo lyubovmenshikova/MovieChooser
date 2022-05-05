@@ -11,16 +11,16 @@ import UIKit
 struct MainButton {
     var title: String
     var image: UIImage?
-    var backgroundImage: UIImageView?
+    var backgroundColor: UIColor
 }
 
 extension MainButton {
     static func getButtons() -> [MainButton] {
         return [
-            MainButton(title: "Выбрать фильм по жанру", image: UIImage(systemName: "theatermasks"), backgroundImage: UIImageView(image: UIImage(named: "222"))),
-            MainButton(title: "Выбрать фильм по актеру", image: UIImage(systemName: "person"), backgroundImage: UIImageView(image: UIImage(named: "33"))),
-            MainButton(title: "Новинки", image: UIImage(systemName: "star"), backgroundImage: UIImageView(image: UIImage(named: "4"))),
-            MainButton(title: "Случайный фильм", image: UIImage(systemName: "dice"), backgroundImage: UIImageView(image: UIImage(named: "5")))
+            MainButton(title: "Выбрать фильм по жанру", image:  UIImage(named: "masks"), backgroundColor: UIColor(red: 83/255, green: 60/255, blue: 112/255, alpha: 1)),
+            MainButton(title: "Выбрать фильм по актеру", image: UIImage(named: "actor"), backgroundColor:  UIColor(red: 86/255, green: 196/255, blue: 183/255, alpha: 1)),
+            MainButton(title: "Популярные фильмы", image: UIImage(named: "star"), backgroundColor: UIColor(red: 128/255, green: 212/255, blue: 63/255, alpha: 1)),
+            MainButton(title: "Случайный фильм", image: UIImage(named: "film"), backgroundColor: UIColor(red: 226/255, green: 230/255, blue: 46/255, alpha: 1))
         ]
     }
 }
