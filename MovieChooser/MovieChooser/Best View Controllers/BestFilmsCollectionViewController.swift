@@ -7,8 +7,6 @@
 
 import UIKit
 
-private let reuseIdentifier = "bestFilmCell"
-
 class BestFilmsCollectionViewController: UICollectionViewController {
     
     var totalPage = 1
@@ -84,5 +82,13 @@ extension BestFilmsCollectionViewController: UICollectionViewDelegateFlowLayout 
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width / 1.5, height: 100)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
     }
 }
