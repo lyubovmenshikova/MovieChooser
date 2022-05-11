@@ -9,8 +9,10 @@ import UIKit
 
 class BestFilmsCell: UICollectionViewCell {
     
+    @IBOutlet var bestFilmView: UIView!
     @IBOutlet var bestFilmIcon: UIImageView!
     @IBOutlet var titleBestFilm: UILabel!
+    
     
     func configure(with bestFilm: Film ) {
         titleBestFilm.text = bestFilm.nameRu
@@ -29,6 +31,7 @@ class BestFilmsCell: UICollectionViewCell {
     
     //метод используется перед тем как ячейка будет переиспользована
     override func prepareForReuse() {
+        super.prepareForReuse()
         bestFilmIcon.image = nil
     }
 }

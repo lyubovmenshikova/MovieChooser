@@ -14,6 +14,9 @@ class BestFilmsCollectionViewController: UICollectionViewController {
     
     var bestFilms = [Film]()
     
+    //вью для Loading текста и спиннера
+    let loadingView = LoadingView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,7 +30,7 @@ class BestFilmsCollectionViewController: UICollectionViewController {
             self.totalPage = bestFilmData.pagesCount
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
-                //self.loadingView.removeLoadingScreen()
+                self.loadingView.removeLoadingScreen()
             }
         }
         
@@ -37,13 +40,16 @@ class BestFilmsCollectionViewController: UICollectionViewController {
         navigationItem.largeTitleDisplayMode = .never
         view.backgroundColor = .secondarySystemBackground
         
-        //        navigationController?.navigationBar.titleTextAttributes =  [.font : UIFont(name: "TrebuchetMS", size: 20) ?? "",.foregroundColor : UIColor(red: 176/255, green: 88/255, blue: 138/255, alpha: 1)]
+        navigationController?.navigationBar.tintColor = UIColor(red: 128/255, green: 212/255, blue: 63/255, alpha: 1)
+        navigationItem.largeTitleDisplayMode = .never
+
         
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.backgroundColor = .systemGroupedBackground
         
         //устанавливаем loading текст и спиннер
-        //        loadingView.setLoadingScreen(x: (self.tableView.frame.width / 2), y: (self.tableView.frame.height / 2) - (self.navigationController?.navigationBar.frame.height)!)
-        //        tableView.addSubview(loadingView)
+        loadingView.setLoadingScreen(x: (self.collectionView.frame.width / 2), y: (self.collectionView.frame.height / 2) - (self.navigationController?.navigationBar.frame.height)!)
+        collectionView.addSubview(loadingView)
     }
     
     /*
@@ -64,11 +70,34 @@ class BestFilmsCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bestFilmCell", for: indexPath) as! BestFilmsCell
-        let film = bestFilms[indexPath.item]
-        cell.configure(with: film)
         
-        return cell
+        if currentPage < totalPage && indexPath.row == bestFilms.count - 1 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "loading", for: indexPath) as! BestFooterCell
+            cell.activityIndicator.startAnimating()
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bestFilmCell", for: indexPath) as! BestFilmsCell
+            let film = bestFilms[indexPath.item]
+            cell.backgroundColor = .white
+            cell.configure(with: film)
+            cell.layer.borderColor = UIColor(red: 128/255, green: 212/255, blue: 63/255, alpha: 1).cgColor
+            cell.layer.borderWidth = 1
+            return cell
+        }
+       
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if currentPage < totalPage && indexPath.row == bestFilms.count - 1 {
+            currentPage += 1
+            NetworkBestFilmsManager.shared.fetchBestFilms(for: currentPage) { bestFilmData in
+                self.bestFilms.append(contentsOf: bestFilmData.films)
+                self.totalPage = bestFilmData.pagesCount
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+        }
     }
     
 }
@@ -76,19 +105,39 @@ class BestFilmsCollectionViewController: UICollectionViewController {
 extension BestFilmsCollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let inset: CGFloat = 10
+        let inset: CGFloat = 15
         return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width / 1.5, height: 100)
+        //колличество ячеек в ряд
+        let itemsPerRow: CGFloat = 2
+        //общая ширина расстояний между ячейками
+        let paddingWidth = 15 * (itemsPerRow + 1)
+        //доступная ширина для ячеек
+        let availableWidth = collectionView.frame.width - paddingWidth
+        let widthPerItem = availableWidth / itemsPerRow
+        
+        return CGSize(width: widthPerItem, height: self.collectionView.frame.size.height / 3)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
+        return 10
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.layer.borderColor = UIColor.gray.cgColor
+        cell?.layer.borderWidth = 2
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.layer.borderColor = UIColor(red: 128/255, green: 212/255, blue: 63/255, alpha: 1).cgColor
+        cell?.layer.borderWidth = 1
     }
 }
