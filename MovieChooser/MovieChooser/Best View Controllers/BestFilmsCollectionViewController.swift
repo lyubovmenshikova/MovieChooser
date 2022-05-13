@@ -52,15 +52,19 @@ class BestFilmsCollectionViewController: UICollectionViewController {
         collectionView.addSubview(loadingView)
     }
     
-    /*
+    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using [segue destinationViewController].
-     // Pass the selected object to the new view controller.
+         guard let indexPath = collectionView.indexPathsForSelectedItems,
+               let destinationVC = segue.destination as? DetailBestFilmController else { return }
+         destinationVC.filmTitle = bestFilms[indexPath.first?.item ?? 0].nameRu
+         destinationVC.filmLength = bestFilms[indexPath.first?.item ?? 0].filmLength
+         destinationVC.country = bestFilms[indexPath.first?.item ?? 0].countries.first?.country
+         destinationVC.year = bestFilms[indexPath.first?.item ?? 0].year
      }
-     */
+    
     
     // MARK: UICollectionViewDataSource
     
@@ -140,4 +144,5 @@ extension BestFilmsCollectionViewController: UICollectionViewDelegateFlowLayout 
         cell?.layer.borderColor = UIColor(red: 128/255, green: 212/255, blue: 63/255, alpha: 1).cgColor
         cell?.layer.borderWidth = 1
     }
+    
 }

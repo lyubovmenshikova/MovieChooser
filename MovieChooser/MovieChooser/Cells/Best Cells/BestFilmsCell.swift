@@ -26,7 +26,6 @@ class BestFilmsCell: UICollectionViewCell {
                 self.bestFilmIcon.image = UIImage(data: imageData)
             }
         }
-        
     }
     
     //метод используется перед тем как ячейка будет переиспользована
