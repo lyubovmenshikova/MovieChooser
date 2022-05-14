@@ -35,6 +35,8 @@ class MainCollectionViewController: UICollectionViewController {
             let _ = segue.destination as! ActorSearchViewController
         case "toBest":
             let _ = segue.destination as! BestFilmsCollectionViewController
+        case "toRandom":
+            let _ = segue.destination as! RandomFilmViewController
         default:
             break
         }
@@ -63,6 +65,8 @@ class MainCollectionViewController: UICollectionViewController {
             performSegue(withIdentifier: "toActor", sender: nil)
         case 2:
             performSegue(withIdentifier: "toBest", sender: nil)
+        case 3:
+            performSegue(withIdentifier: "toRandom", sender: nil)
         default: break
         }
     }
@@ -87,7 +91,6 @@ extension MainCollectionViewController {
     private func setupAppearance() {
         navigationController?.navigationBar.largeTitleTextAttributes = [.font : UIFont(name: "ChalkboardSE-Bold", size: 35) ?? ""]
         navigationItem.title = "Movie Chooser"
-       // collectionView.backgroundView = UIImageView(image: UIImage(named: "1122"))
         collectionView.backgroundColor = .secondarySystemBackground
         navigationItem.backButtonTitle = "Назад"
     }

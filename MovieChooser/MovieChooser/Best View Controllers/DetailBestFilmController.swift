@@ -19,6 +19,9 @@ class DetailBestFilmController: UIViewController {
     var filmLength: String?
     var country: String?
     var year: String?
+    var imageURL: String?
+    
+    var mainColor = UIColor(red: 81/255, green: 163/255, blue: 18/255, alpha: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +33,10 @@ class DetailBestFilmController: UIViewController {
         navigationItem.largeTitleDisplayMode = .never
         view.backgroundColor = .secondarySystemBackground
         
-        navigationController?.navigationBar.tintColor = UIColor(red: 128/255, green: 212/255, blue: 63/255, alpha: 1)
+        navigationController?.navigationBar.tintColor = mainColor
         navigationItem.largeTitleDisplayMode = .never
+        
+        setupColor(with: mainColor)
     }
     
     func updateInterface() {
@@ -39,6 +44,23 @@ class DetailBestFilmController: UIViewController {
         lengthFilmLabel.text = filmLength ?? "Нет информации"
         countryLabel.text = country ?? "Нет информации"
         yearLabel.text = year ?? "Нет информации"
+        
+        DispatchQueue.global().async {
+            guard let stringURL = self.imageURL,
+                  let imageURL = URL(string: stringURL),
+                  let imageData = try? Data(contentsOf: imageURL) else { return }
+            
+            DispatchQueue.main.async {
+                self.iconFilmImage.image = UIImage(data: imageData)
+            }
+        }
+    }
+    
+    private func setupColor(with color: UIColor) {
+        titleFilmLabel.textColor = color
+        lengthFilmLabel.textColor = color
+        countryLabel.textColor = color
+        yearLabel.textColor = color
     }
     
     

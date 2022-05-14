@@ -40,7 +40,7 @@ class BestFilmsCollectionViewController: UICollectionViewController {
         navigationItem.largeTitleDisplayMode = .never
         view.backgroundColor = .secondarySystemBackground
         
-        navigationController?.navigationBar.tintColor = UIColor(red: 128/255, green: 212/255, blue: 63/255, alpha: 1)
+        navigationController?.navigationBar.tintColor = UIColor(red: 81/255, green: 163/255, blue: 18/255, alpha: 1)
         navigationItem.largeTitleDisplayMode = .never
 
         
@@ -63,6 +63,7 @@ class BestFilmsCollectionViewController: UICollectionViewController {
          destinationVC.filmLength = bestFilms[indexPath.first?.item ?? 0].filmLength
          destinationVC.country = bestFilms[indexPath.first?.item ?? 0].countries.first?.country
          destinationVC.year = bestFilms[indexPath.first?.item ?? 0].year
+         destinationVC.imageURL = bestFilms[indexPath.first?.item ?? 0].posterUrl
      }
     
     
@@ -84,7 +85,8 @@ class BestFilmsCollectionViewController: UICollectionViewController {
             let film = bestFilms[indexPath.item]
             cell.backgroundColor = .white
             cell.configure(with: film)
-            cell.layer.borderColor = UIColor(red: 128/255, green: 212/255, blue: 63/255, alpha: 1).cgColor
+
+            cell.layer.borderColor = UIColor(red: 81/255, green: 163/255, blue: 18/255, alpha: 1).cgColor
             cell.layer.borderWidth = 1
             return cell
         }
@@ -141,7 +143,7 @@ extension BestFilmsCollectionViewController: UICollectionViewDelegateFlowLayout 
     
     override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
-        cell?.layer.borderColor = UIColor(red: 128/255, green: 212/255, blue: 63/255, alpha: 1).cgColor
+        cell?.layer.borderColor = UIColor(red: 81/255, green: 163/255, blue: 18/255, alpha: 1).cgColor
         cell?.layer.borderWidth = 1
     }
     
