@@ -42,6 +42,8 @@
 		9F42BAD9282C56E40023B096 /* BestFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42BAD8282C56E40023B096 /* BestFooterCell.swift */; };
 		9F42BADB282EEE820023B096 /* DetailBestFilmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42BADA282EEE820023B096 /* DetailBestFilmController.swift */; };
 		9F42BADE283049650023B096 /* RandomFilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42BADD283049650023B096 /* RandomFilmViewController.swift */; };
+		9F42BAE02832E0240023B096 /* RandomFilmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42BADF2832E0240023B096 /* RandomFilmData.swift */; };
+		9F42BAE22832E27B0023B096 /* NetworkRandomFilmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42BAE12832E27B0023B096 /* NetworkRandomFilmManager.swift */; };
 		9F93576D27F718E8007B54B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F93576C27F718E8007B54B5 /* AppDelegate.swift */; };
 		9F93576F27F718E8007B54B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F93576E27F718E8007B54B5 /* SceneDelegate.swift */; };
 		9F93577427F718E8007B54B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F93577227F718E8007B54B5 /* Main.storyboard */; };
@@ -86,6 +88,8 @@
 		9F42BAD8282C56E40023B096 /* BestFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestFooterCell.swift; sourceTree = "<group>"; };
 		9F42BADA282EEE820023B096 /* DetailBestFilmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBestFilmController.swift; sourceTree = "<group>"; };
 		9F42BADD283049650023B096 /* RandomFilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomFilmViewController.swift; sourceTree = "<group>"; };
+		9F42BADF2832E0240023B096 /* RandomFilmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomFilmData.swift; sourceTree = "<group>"; };
+		9F42BAE12832E27B0023B096 /* NetworkRandomFilmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRandomFilmManager.swift; sourceTree = "<group>"; };
 		9F93576927F718E8007B54B5 /* MovieChooser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieChooser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F93576C27F718E8007B54B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F93576E27F718E8007B54B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 				9F1C0BDB281AA6FA006B24A2 /* NetworkActorForIDManager.swift */,
 				9F280051281CF7E100DAA718 /* NetworkFilmsByActorManager.swift */,
 				9F42BAD628246CF10023B096 /* NetworkBestFilmsManager.swift */,
+				9F42BAE12832E27B0023B096 /* NetworkRandomFilmManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 				9F1C0BDD281AA7F6006B24A2 /* ActorIdData.swift */,
 				9F280053281CF81700DAA718 /* FilmsByActorData.swift */,
 				9F42BAD428246AEE0023B096 /* BestFilmData.swift */,
+				9F42BADF2832E0240023B096 /* RandomFilmData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -378,6 +384,7 @@
 				9F280054281CF81700DAA718 /* FilmsByActorData.swift in Sources */,
 				9F12ACFF281824A20099337B /* NetworkActorManager.swift in Sources */,
 				9F42BAD728246CF10023B096 /* NetworkBestFilmsManager.swift in Sources */,
+				9F42BAE22832E27B0023B096 /* NetworkRandomFilmManager.swift in Sources */,
 				9F1C0BDC281AA6FA006B24A2 /* NetworkActorForIDManager.swift in Sources */,
 				9F42BAD9282C56E40023B096 /* BestFooterCell.swift in Sources */,
 				9F93576D27F718E8007B54B5 /* AppDelegate.swift in Sources */,
@@ -386,6 +393,7 @@
 				9F93576F27F718E8007B54B5 /* SceneDelegate.swift in Sources */,
 				9F12ACF128109DA00099337B /* GenreListFooterCell.swift in Sources */,
 				9F12ACE72806A2550099337B /* GenresData.swift in Sources */,
+				9F42BAE02832E0240023B096 /* RandomFilmData.swift in Sources */,
 				9F1C0BD8281A7F95006B24A2 /* ActorDetailCell.swift in Sources */,
 				9F12ACF828172B260099337B /* ActorListViewController.swift in Sources */,
 				9F280050281C0DE500DAA718 /* AlertController.swift in Sources */,
