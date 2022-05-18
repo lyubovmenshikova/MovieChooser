@@ -44,6 +44,9 @@
 		9F42BADE283049650023B096 /* RandomFilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42BADD283049650023B096 /* RandomFilmViewController.swift */; };
 		9F42BAE02832E0240023B096 /* RandomFilmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42BADF2832E0240023B096 /* RandomFilmData.swift */; };
 		9F42BAE22832E27B0023B096 /* NetworkRandomFilmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42BAE12832E27B0023B096 /* NetworkRandomFilmManager.swift */; };
+		9F42BAE42835067C0023B096 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42BAE32835067C0023B096 /* NetworkService.swift */; };
+		9F42BAE62835097D0023B096 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42BAE52835097D0023B096 /* NetworkDataFetcher.swift */; };
+		9F42BAE9283516420023B096 /* DataFetcherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42BAE8283516420023B096 /* DataFetcherService.swift */; };
 		9F93576D27F718E8007B54B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F93576C27F718E8007B54B5 /* AppDelegate.swift */; };
 		9F93576F27F718E8007B54B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F93576E27F718E8007B54B5 /* SceneDelegate.swift */; };
 		9F93577427F718E8007B54B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F93577227F718E8007B54B5 /* Main.storyboard */; };
@@ -90,6 +93,9 @@
 		9F42BADD283049650023B096 /* RandomFilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomFilmViewController.swift; sourceTree = "<group>"; };
 		9F42BADF2832E0240023B096 /* RandomFilmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomFilmData.swift; sourceTree = "<group>"; };
 		9F42BAE12832E27B0023B096 /* NetworkRandomFilmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRandomFilmManager.swift; sourceTree = "<group>"; };
+		9F42BAE32835067C0023B096 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		9F42BAE52835097D0023B096 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
+		9F42BAE8283516420023B096 /* DataFetcherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcherService.swift; sourceTree = "<group>"; };
 		9F93576927F718E8007B54B5 /* MovieChooser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieChooser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F93576C27F718E8007B54B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F93576E27F718E8007B54B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +146,7 @@
 				9F280051281CF7E100DAA718 /* NetworkFilmsByActorManager.swift */,
 				9F42BAD628246CF10023B096 /* NetworkBestFilmsManager.swift */,
 				9F42BAE12832E27B0023B096 /* NetworkRandomFilmManager.swift */,
+				9F42BAE728350B670023B096 /* Services */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -212,6 +219,16 @@
 				9F42BADD283049650023B096 /* RandomFilmViewController.swift */,
 			);
 			path = "Random View Controllers";
+			sourceTree = "<group>";
+		};
+		9F42BAE728350B670023B096 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9F42BAE32835067C0023B096 /* NetworkService.swift */,
+				9F42BAE52835097D0023B096 /* NetworkDataFetcher.swift */,
+				9F42BAE8283516420023B096 /* DataFetcherService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		9F93576027F718E8007B54B5 = {
@@ -380,6 +397,7 @@
 				9F12ACDB280305260099337B /* GenreViewCell.swift in Sources */,
 				9F1C0BD42819864C006B24A2 /* ActorFilmsViewController.swift in Sources */,
 				9F12ACFB281822FB0099337B /* ActorsData.swift in Sources */,
+				9F42BAE42835067C0023B096 /* NetworkService.swift in Sources */,
 				9F42BADB282EEE820023B096 /* DetailBestFilmController.swift in Sources */,
 				9F280054281CF81700DAA718 /* FilmsByActorData.swift in Sources */,
 				9F12ACFF281824A20099337B /* NetworkActorManager.swift in Sources */,
@@ -398,6 +416,7 @@
 				9F12ACF828172B260099337B /* ActorListViewController.swift in Sources */,
 				9F280050281C0DE500DAA718 /* AlertController.swift in Sources */,
 				9F42BADE283049650023B096 /* RandomFilmViewController.swift in Sources */,
+				9F42BAE9283516420023B096 /* DataFetcherService.swift in Sources */,
 				9F10CC5A281D81E7001BC1D6 /* DetailFilmByActorController.swift in Sources */,
 				9F42BAD528246AEE0023B096 /* BestFilmData.swift in Sources */,
 				9F42BAD328246A040023B096 /* BestFilmsCell.swift in Sources */,
@@ -406,6 +425,7 @@
 				9F280052281CF7E100DAA718 /* NetworkFilmsByActorManager.swift in Sources */,
 				9F12ACFD281824780099337B /* MainButton.swift in Sources */,
 				9F12AC7A27FDC5040099337B /* MainViewCell.swift in Sources */,
+				9F42BAE62835097D0023B096 /* NetworkDataFetcher.swift in Sources */,
 				9F12ACD12801C5260099337B /* GenreTableViewController.swift in Sources */,
 				9F12AC6F27FC3F910099337B /* MainCollectionViewController.swift in Sources */,
 				9F12ACE02804BFB10099337B /* Genre.swift in Sources */,
