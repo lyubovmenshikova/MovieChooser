@@ -8,13 +8,13 @@
 import Foundation
 
 struct ActorsData<T : Decodable> : Decodable {
-    var total: Int
-    var items: [Actors]
+    let total: Int
+    let items: [Actors]
 }
 
 struct Actors: Decodable {
     let kinopoiskId: Int
-    let nameRu: String
-    let nameEn: String
+    let nameRu: String?
+    let nameEn: String?
     let posterUrl: String
 }

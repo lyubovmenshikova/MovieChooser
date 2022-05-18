@@ -47,15 +47,15 @@ class FilmsListCell: UITableViewCell {
     
     func configure(with film: FilmsByActorData ) {
         
-        filmNameLabel.text =  film.nameRu ?? ""
+        filmNameLabel.text =  film.nameRu ?? "Нет информации"
         ratingLabel.text = "\(film.ratingKinopoisk ?? 0)"
-        genreLabel.text = film.genres.first?.genre ?? ""
+        genreLabel.text = film.genres.first?.genre ?? "Нет информации"
         yearLabel.text = "\(film.year ?? 0)"
         
 
         DispatchQueue.global().async {
-            guard let stringURL = film.posterUrlPreview,
-                  let imageURL = URL(string: stringURL),
+            let stringURL = film.posterUrlPreview
+            guard let imageURL = URL(string: stringURL),
                   let imageData = try? Data(contentsOf: imageURL) else { return }
 
             DispatchQueue.main.async {

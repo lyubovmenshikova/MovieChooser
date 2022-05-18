@@ -43,9 +43,9 @@ class GenreListCell: UITableViewCell {
     }
     
     func configure(with genre: Item ) {
-        titleFilmLabel.text = genre.nameRu
-        yearFilmLabel.text = "Год: \(genre.year)"
-        ratingLabel.text = "\(genre.ratingKinopoisk)"
+        titleFilmLabel.text = genre.nameRu ?? "Нет информации"
+        yearFilmLabel.text = "Год: \(genre.year ?? 0)"
+        ratingLabel.text = "\(genre.ratingKinopoisk ?? 0.0)"
         
         DispatchQueue.global().async {
             let stringURL = genre.posterUrlPreview

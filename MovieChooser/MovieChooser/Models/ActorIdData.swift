@@ -9,17 +9,17 @@ import Foundation
 
 struct ActorIdData: Decodable {
     
-    var nameRu: String?
-    var nameEn: String?
-    var sex: String?
-    var birthday: String?
-    var age: Int?
-    var birthplace: String?
-    var films: [Films]
+    let nameRu: String?
+    let nameEn: String?
+    let sex: String?
+    let birthday: String?
+    let age: Int?
+    let birthplace: String?
+    let films: [Films]
 }
 
 struct Films: Decodable {
-    let filmId: Int?
+    let filmId: Int
     let nameRu: String?
     let rating: String?
 }

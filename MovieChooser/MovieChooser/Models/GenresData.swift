@@ -8,14 +8,14 @@
 import Foundation
 
 struct GenresData<T : Decodable> : Decodable {
-    var totalPages: Int
-    var items: [Item]
+    let totalPages: Int
+    let items: [Item]
 }
 
 struct Item: Decodable {
-    let nameRu: String
-    let ratingKinopoisk: Double
-    let year: Int
+    let nameRu: String?
+    let ratingKinopoisk: Double?
+    let year: Int?
     let posterUrlPreview: String
     let countries: [Country]
 }

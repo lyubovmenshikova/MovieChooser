@@ -37,7 +37,7 @@ class ActorsListViewCell: UITableViewCell {
     }
     
     func configure(with actor: Actors ) {
-        actorNameLabel.text = "\(actor.nameRu) \r\n \(actor.nameEn)"
+        actorNameLabel.text = "\(actor.nameRu ?? "") \r\n \(actor.nameEn ?? "")"
         
         DispatchQueue.global().async {
             let stringURL = actor.posterUrl

@@ -64,7 +64,7 @@ class ActorFilmsViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FilmsListCell", for: indexPath) as! FilmsListCell
             
             let film = films[indexPath.row]
-            let id = film.filmId ?? 0
+            let id = film.filmId
             
             NetworkFilmsByActorManager.shared.fetchFilmByActor(for: id) { filmByActor in
                 cell.configure(with: filmByActor)
@@ -95,7 +95,7 @@ class ActorFilmsViewController: UITableViewController {
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          guard let indexPath = tableView.indexPathForSelectedRow,
                let destinationVC = segue.destination as? DetailFilmByActorController else { return }
-         destinationVC.id = films[indexPath.row].filmId ?? 0
+         destinationVC.id = films[indexPath.row].filmId
      }
     
 }

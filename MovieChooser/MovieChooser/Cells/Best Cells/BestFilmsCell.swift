@@ -9,7 +9,6 @@ import UIKit
 
 class BestFilmsCell: UICollectionViewCell {
     
-    @IBOutlet var bestFilmView: UIView!
     @IBOutlet var bestFilmIcon: UIImageView!
     @IBOutlet var titleBestFilm: UILabel!
     
@@ -18,8 +17,8 @@ class BestFilmsCell: UICollectionViewCell {
         titleBestFilm.text = bestFilm.nameRu
         
         DispatchQueue.global().async {
-            guard let stringURL = bestFilm.posterUrl,
-                  let imageURL = URL(string: stringURL),
+            let stringURL = bestFilm.posterUrl
+            guard let imageURL = URL(string: stringURL),
                   let imageData = try? Data(contentsOf: imageURL) else { return }
             
             DispatchQueue.main.async {

@@ -10,20 +10,20 @@ import Foundation
 
 struct FilmsByActorData: Decodable {
     
-    var nameRu: String?
-    var posterUrlPreview: String?
-    var ratingKinopoisk: Double?
-    var year: Int?
-    var filmLength: Int?
-    var shortDescription: String?
-    var countries: [Countries]
-    var genres: [Genres]
+    let nameRu: String?
+    let posterUrlPreview: String
+    let ratingKinopoisk: Double?
+    let year: Int?
+    let filmLength: Int?
+    let shortDescription: String?
+    let countries: [Countries]
+    let genres: [Genres]
 }
 
 struct Countries: Decodable {
-    let country: String?
+    let country: String
 }
 
 struct Genres: Decodable {
-    var genre: String?
+    let genre: String
 }

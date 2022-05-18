@@ -8,27 +8,27 @@
 import Foundation
 
 struct BestFilmData: Decodable {
-    var pagesCount: Int
-    var films: [Film]
+    let pagesCount: Int
+    let films: [Film]
 }
 
 struct Film: Decodable {
-    var filmId: Int?
-    var nameRu: String?
-    var year: String?
-    var filmLength: String?
-    var countries: [CountriesBest]
-    var genres: [GenresBest]
-    var rating: String?
-    var posterUrl: String?
+    let filmId: Int
+    let nameRu: String?
+    let year: String?
+    let filmLength: String?
+    let countries: [CountriesBest]
+    let genres: [GenresBest]
+    let rating: String?
+    let posterUrl: String
     
 }
 
 struct CountriesBest: Decodable {
-    var country: String?
+    let country: String
 }
 
 struct GenresBest: Decodable {
-    var genre: String?
+    let genre: String
 }
 

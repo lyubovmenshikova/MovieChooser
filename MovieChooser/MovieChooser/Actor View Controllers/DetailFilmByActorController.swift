@@ -57,8 +57,8 @@ class DetailFilmByActorController: UIViewController {
             self.countryLabel.text = film.countries.first?.country ?? "Нет информации"
             self.yearLabel.text = "\(film.year ?? 0)"
             
-            guard let stringURL = film.posterUrlPreview,
-                  let imageURL = URL(string: stringURL),
+            let stringURL = film.posterUrlPreview
+            guard let imageURL = URL(string: stringURL),
                   let imageData = try? Data(contentsOf: imageURL) else { return }
             DispatchQueue.main.async {
                 self.filmImage.image = UIImage(data: imageData)

@@ -8,25 +8,25 @@
 import Foundation
 
 struct RandomFilmData: Decodable {
-    var pagesCount: Int
-    var films: [Items]
+    let pagesCount: Int
+    let films: [Items]
 }
 
 struct Items: Decodable {
-    var filmId: Int?
-    var nameRu: String?
-    var year: String?
-    var filmLength: String?
-    var countries: [CountriesRandom]
-    var genres: [GenresRandom]
-    var rating: String?
-    var posterUrl: String?
+    let filmId: Int
+    let nameRu: String?
+    let year: String?
+    let filmLength: String?
+    let countries: [CountriesRandom]
+    let genres: [GenresRandom]
+    let rating: String?
+    let posterUrl: String?
 }
 
 struct CountriesRandom: Decodable {
-    var country: String?
+    let country: String
 }
 
 struct GenresRandom: Decodable {
-    var genre: String?
+    let genre: String
 }
