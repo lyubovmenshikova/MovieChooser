@@ -16,6 +16,8 @@ class GenreListViewController: UITableViewController {
     var genre: String!
     var idNumber: String?
     
+    var dataFetcherService = DataFetcherService()
+    
     //вью для Loading текста и спиннера
     let loadingView = LoadingView()
    
@@ -46,7 +48,8 @@ class GenreListViewController: UITableViewController {
     
     private func getFilms() {
         if let idNumber = idNumber {
-            NetworkGenresManager.shared.fetchCurrentFilms(for: idNumber, page: 1) { genreData in
+            dataFetcherService.fetchFilmsByGenre(for: idNumber, page: 1) { genreData in
+                guard let genreData = genreData else { return }
                 self.films.append(contentsOf: genreData.items)
                 self.totalPage = genreData.totalPages
                 DispatchQueue.main.async {
@@ -83,10 +86,10 @@ class GenreListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if currentPage < totalPage && indexPath.row == films.count - 1 {
             currentPage += 1
-            NetworkGenresManager.shared.fetchCurrentFilms(for: idNumber ?? "", page: currentPage) { genreData in
+            dataFetcherService.fetchFilmsByGenre(for: idNumber ?? "", page: currentPage) { genreData in
+                guard let genreData = genreData else { return }
                 self.films.append(contentsOf: genreData.items)
                 self.totalPage = genreData.totalPages
-                print(self.films.count)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }

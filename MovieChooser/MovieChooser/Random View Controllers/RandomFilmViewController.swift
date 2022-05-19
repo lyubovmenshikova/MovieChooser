@@ -14,7 +14,8 @@ class RandomFilmViewController: UIViewController {
     @IBOutlet var generationButton: UIButton!
     
     var mainColor = UIColor(red: 208/255, green: 224/255, blue: 56/255, alpha: 1)
-
+    var dataFetcherService = DataFetcherService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

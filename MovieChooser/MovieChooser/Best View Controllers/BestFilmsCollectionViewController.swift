@@ -13,6 +13,7 @@ class BestFilmsCollectionViewController: UICollectionViewController {
     var currentPage = 1
     
     var bestFilms = [Film]()
+    var dataFetcherService = DataFetcherService()
     
     //вью для Loading текста и спиннера
     let loadingView = LoadingView()
@@ -25,7 +26,8 @@ class BestFilmsCollectionViewController: UICollectionViewController {
     }
     
     private func getBestFilms() {
-        NetworkBestFilmsManager.shared.fetchBestFilms(for: 1) { bestFilmData in
+        dataFetcherService.fetchBestFilms(for: 1) { bestFilmData in
+            guard let bestFilmData = bestFilmData else { return }
             self.bestFilms.append(contentsOf: bestFilmData.films)
             self.totalPage = bestFilmData.pagesCount
             DispatchQueue.main.async {
@@ -33,7 +35,6 @@ class BestFilmsCollectionViewController: UICollectionViewController {
                 self.loadingView.removeLoadingScreen()
             }
         }
-        
     }
     
     private func setupAppearance() {
@@ -42,7 +43,7 @@ class BestFilmsCollectionViewController: UICollectionViewController {
         
         navigationController?.navigationBar.tintColor = UIColor(red: 81/255, green: 163/255, blue: 18/255, alpha: 1)
         navigationItem.largeTitleDisplayMode = .never
-
+        
         
         collectionView.showsVerticalScrollIndicator = false
         collectionView.backgroundColor = .systemGroupedBackground
@@ -53,18 +54,18 @@ class BestFilmsCollectionViewController: UICollectionViewController {
     }
     
     
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         guard let indexPath = collectionView.indexPathsForSelectedItems,
-               let destinationVC = segue.destination as? DetailBestFilmController else { return }
-         destinationVC.filmTitle = bestFilms[indexPath.first?.item ?? 0].nameRu
-         destinationVC.filmLength = bestFilms[indexPath.first?.item ?? 0].filmLength
-         destinationVC.country = bestFilms[indexPath.first?.item ?? 0].countries.first?.country
-         destinationVC.year = bestFilms[indexPath.first?.item ?? 0].year
-         destinationVC.imageURL = bestFilms[indexPath.first?.item ?? 0].posterUrl
-     }
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = collectionView.indexPathsForSelectedItems,
+              let destinationVC = segue.destination as? DetailBestFilmController else { return }
+        destinationVC.filmTitle = bestFilms[indexPath.first?.item ?? 0].nameRu
+        destinationVC.filmLength = bestFilms[indexPath.first?.item ?? 0].filmLength
+        destinationVC.country = bestFilms[indexPath.first?.item ?? 0].countries.first?.country
+        destinationVC.year = bestFilms[indexPath.first?.item ?? 0].year
+        destinationVC.imageURL = bestFilms[indexPath.first?.item ?? 0].posterUrl
+    }
     
     
     // MARK: UICollectionViewDataSource
@@ -85,18 +86,19 @@ class BestFilmsCollectionViewController: UICollectionViewController {
             let film = bestFilms[indexPath.item]
             cell.backgroundColor = .white
             cell.configure(with: film)
-
+            
             cell.layer.borderColor = UIColor(red: 81/255, green: 163/255, blue: 18/255, alpha: 1).cgColor
             cell.layer.borderWidth = 1
             return cell
         }
-       
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if currentPage < totalPage && indexPath.row == bestFilms.count - 1 {
             currentPage += 1
-            NetworkBestFilmsManager.shared.fetchBestFilms(for: currentPage) { bestFilmData in
+            dataFetcherService.fetchBestFilms(for: currentPage) { bestFilmData in
+                guard let bestFilmData = bestFilmData else { return }
                 self.bestFilms.append(contentsOf: bestFilmData.films)
                 self.totalPage = bestFilmData.pagesCount
                 DispatchQueue.main.async {
@@ -114,7 +116,7 @@ extension BestFilmsCollectionViewController: UICollectionViewDelegateFlowLayout 
         let inset: CGFloat = 15
         return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //колличество ячеек в ряд
         let itemsPerRow: CGFloat = 2

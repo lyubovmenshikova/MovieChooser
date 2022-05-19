@@ -15,7 +15,6 @@
 		9F12ACDB280305260099337B /* GenreViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12ACDA280305260099337B /* GenreViewCell.swift */; };
 		9F12ACDD28036CAF0099337B /* GenreListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12ACDC28036CAF0099337B /* GenreListViewController.swift */; };
 		9F12ACE02804BFB10099337B /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12ACDF2804BFB10099337B /* Genre.swift */; };
-		9F12ACE52806A16B0099337B /* NetworkGenresManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12ACE42806A16B0099337B /* NetworkGenresManager.swift */; };
 		9F12ACE72806A2550099337B /* GenresData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12ACE62806A2550099337B /* GenresData.swift */; };
 		9F12ACEB2806D8BA0099337B /* GenreListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12ACEA2806D8BA0099337B /* GenreListCell.swift */; };
 		9F12ACEF280D9E050099337B /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12ACEE280D9E050099337B /* LoadingView.swift */; };
@@ -25,25 +24,20 @@
 		9F12ACF828172B260099337B /* ActorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12ACF728172B250099337B /* ActorListViewController.swift */; };
 		9F12ACFB281822FB0099337B /* ActorsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12ACFA281822FB0099337B /* ActorsData.swift */; };
 		9F12ACFD281824780099337B /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12ACFC281824780099337B /* MainButton.swift */; };
-		9F12ACFF281824A20099337B /* NetworkActorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12ACFE281824A20099337B /* NetworkActorManager.swift */; };
 		9F12AD01281832A70099337B /* ActorsListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F12AD00281832A70099337B /* ActorsListViewCell.swift */; };
 		9F1C0BD42819864C006B24A2 /* ActorFilmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1C0BD32819864C006B24A2 /* ActorFilmsViewController.swift */; };
 		9F1C0BD8281A7F95006B24A2 /* ActorDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1C0BD7281A7F95006B24A2 /* ActorDetailCell.swift */; };
 		9F1C0BDA281A85F7006B24A2 /* FilmsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1C0BD9281A85F7006B24A2 /* FilmsListCell.swift */; };
-		9F1C0BDC281AA6FA006B24A2 /* NetworkActorForIDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1C0BDB281AA6FA006B24A2 /* NetworkActorForIDManager.swift */; };
 		9F1C0BDE281AA7F6006B24A2 /* ActorIdData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1C0BDD281AA7F6006B24A2 /* ActorIdData.swift */; };
 		9F280050281C0DE500DAA718 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28004F281C0DE500DAA718 /* AlertController.swift */; };
-		9F280052281CF7E100DAA718 /* NetworkFilmsByActorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F280051281CF7E100DAA718 /* NetworkFilmsByActorManager.swift */; };
 		9F280054281CF81700DAA718 /* FilmsByActorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F280053281CF81700DAA718 /* FilmsByActorData.swift */; };
 		9F42BAD028240EF10023B096 /* BestFilmsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42BACF28240EF10023B096 /* BestFilmsCollectionViewController.swift */; };
 		9F42BAD328246A040023B096 /* BestFilmsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42BAD228246A040023B096 /* BestFilmsCell.swift */; };
 		9F42BAD528246AEE0023B096 /* BestFilmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42BAD428246AEE0023B096 /* BestFilmData.swift */; };
-		9F42BAD728246CF10023B096 /* NetworkBestFilmsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42BAD628246CF10023B096 /* NetworkBestFilmsManager.swift */; };
 		9F42BAD9282C56E40023B096 /* BestFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42BAD8282C56E40023B096 /* BestFooterCell.swift */; };
 		9F42BADB282EEE820023B096 /* DetailBestFilmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42BADA282EEE820023B096 /* DetailBestFilmController.swift */; };
 		9F42BADE283049650023B096 /* RandomFilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42BADD283049650023B096 /* RandomFilmViewController.swift */; };
 		9F42BAE02832E0240023B096 /* RandomFilmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42BADF2832E0240023B096 /* RandomFilmData.swift */; };
-		9F42BAE22832E27B0023B096 /* NetworkRandomFilmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42BAE12832E27B0023B096 /* NetworkRandomFilmManager.swift */; };
 		9F42BAE42835067C0023B096 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42BAE32835067C0023B096 /* NetworkService.swift */; };
 		9F42BAE62835097D0023B096 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42BAE52835097D0023B096 /* NetworkDataFetcher.swift */; };
 		9F42BAE9283516420023B096 /* DataFetcherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42BAE8283516420023B096 /* DataFetcherService.swift */; };
@@ -64,7 +58,6 @@
 		9F12ACDA280305260099337B /* GenreViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewCell.swift; sourceTree = "<group>"; };
 		9F12ACDC28036CAF0099337B /* GenreListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreListViewController.swift; sourceTree = "<group>"; };
 		9F12ACDF2804BFB10099337B /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
-		9F12ACE42806A16B0099337B /* NetworkGenresManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkGenresManager.swift; sourceTree = "<group>"; };
 		9F12ACE62806A2550099337B /* GenresData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresData.swift; sourceTree = "<group>"; };
 		9F12ACEA2806D8BA0099337B /* GenreListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreListCell.swift; sourceTree = "<group>"; };
 		9F12ACEE280D9E050099337B /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -74,25 +67,20 @@
 		9F12ACF728172B250099337B /* ActorListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorListViewController.swift; sourceTree = "<group>"; };
 		9F12ACFA281822FB0099337B /* ActorsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorsData.swift; sourceTree = "<group>"; };
 		9F12ACFC281824780099337B /* MainButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
-		9F12ACFE281824A20099337B /* NetworkActorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkActorManager.swift; sourceTree = "<group>"; };
 		9F12AD00281832A70099337B /* ActorsListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorsListViewCell.swift; sourceTree = "<group>"; };
 		9F1C0BD32819864C006B24A2 /* ActorFilmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorFilmsViewController.swift; sourceTree = "<group>"; };
 		9F1C0BD7281A7F95006B24A2 /* ActorDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorDetailCell.swift; sourceTree = "<group>"; };
 		9F1C0BD9281A85F7006B24A2 /* FilmsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsListCell.swift; sourceTree = "<group>"; };
-		9F1C0BDB281AA6FA006B24A2 /* NetworkActorForIDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkActorForIDManager.swift; sourceTree = "<group>"; };
 		9F1C0BDD281AA7F6006B24A2 /* ActorIdData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorIdData.swift; sourceTree = "<group>"; };
 		9F28004F281C0DE500DAA718 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
-		9F280051281CF7E100DAA718 /* NetworkFilmsByActorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFilmsByActorManager.swift; sourceTree = "<group>"; };
 		9F280053281CF81700DAA718 /* FilmsByActorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsByActorData.swift; sourceTree = "<group>"; };
 		9F42BACF28240EF10023B096 /* BestFilmsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestFilmsCollectionViewController.swift; sourceTree = "<group>"; };
 		9F42BAD228246A040023B096 /* BestFilmsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestFilmsCell.swift; sourceTree = "<group>"; };
 		9F42BAD428246AEE0023B096 /* BestFilmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestFilmData.swift; sourceTree = "<group>"; };
-		9F42BAD628246CF10023B096 /* NetworkBestFilmsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkBestFilmsManager.swift; sourceTree = "<group>"; };
 		9F42BAD8282C56E40023B096 /* BestFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestFooterCell.swift; sourceTree = "<group>"; };
 		9F42BADA282EEE820023B096 /* DetailBestFilmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBestFilmController.swift; sourceTree = "<group>"; };
 		9F42BADD283049650023B096 /* RandomFilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomFilmViewController.swift; sourceTree = "<group>"; };
 		9F42BADF2832E0240023B096 /* RandomFilmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomFilmData.swift; sourceTree = "<group>"; };
-		9F42BAE12832E27B0023B096 /* NetworkRandomFilmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRandomFilmManager.swift; sourceTree = "<group>"; };
 		9F42BAE32835067C0023B096 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		9F42BAE52835097D0023B096 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		9F42BAE8283516420023B096 /* DataFetcherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcherService.swift; sourceTree = "<group>"; };
@@ -137,18 +125,15 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
-		9F12ACE32806A1440099337B /* Managers */ = {
+		9F12ACE32806A1440099337B /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				9F12ACE42806A16B0099337B /* NetworkGenresManager.swift */,
-				9F12ACFE281824A20099337B /* NetworkActorManager.swift */,
-				9F1C0BDB281AA6FA006B24A2 /* NetworkActorForIDManager.swift */,
-				9F280051281CF7E100DAA718 /* NetworkFilmsByActorManager.swift */,
-				9F42BAD628246CF10023B096 /* NetworkBestFilmsManager.swift */,
-				9F42BAE12832E27B0023B096 /* NetworkRandomFilmManager.swift */,
-				9F42BAE728350B670023B096 /* Services */,
+				9F42BAE32835067C0023B096 /* NetworkService.swift */,
+				9F42BAE52835097D0023B096 /* NetworkDataFetcher.swift */,
+				9F42BAE8283516420023B096 /* DataFetcherService.swift */,
+				9F12ACF9281822DC0099337B /* Models */,
 			);
-			path = Managers;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		9F12ACF4281347490099337B /* Actor View Controllers */ = {
@@ -221,16 +206,6 @@
 			path = "Random View Controllers";
 			sourceTree = "<group>";
 		};
-		9F42BAE728350B670023B096 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				9F42BAE32835067C0023B096 /* NetworkService.swift */,
-				9F42BAE52835097D0023B096 /* NetworkDataFetcher.swift */,
-				9F42BAE8283516420023B096 /* DataFetcherService.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		9F93576027F718E8007B54B5 = {
 			isa = PBXGroup;
 			children = (
@@ -250,8 +225,7 @@
 		9F93576B27F718E8007B54B5 /* MovieChooser */ = {
 			isa = PBXGroup;
 			children = (
-				9F12ACF9281822DC0099337B /* Models */,
-				9F12ACE32806A1440099337B /* Managers */,
+				9F12ACE32806A1440099337B /* Services */,
 				9F12ACDE2804BF970099337B /* Storage */,
 				9F12AC6B27FB5B6D0099337B /* Cells */,
 				9FA26B3527FB014000010907 /* Views */,
@@ -391,7 +365,6 @@
 				9F12ACEB2806D8BA0099337B /* GenreListCell.swift in Sources */,
 				9F12AD01281832A70099337B /* ActorsListViewCell.swift in Sources */,
 				9FA26B3327FAFA5A00010907 /* some.swift in Sources */,
-				9F12ACE52806A16B0099337B /* NetworkGenresManager.swift in Sources */,
 				9F12ACF328109F280099337B /* FilmDetailViewController.swift in Sources */,
 				9F1C0BDA281A85F7006B24A2 /* FilmsListCell.swift in Sources */,
 				9F12ACDB280305260099337B /* GenreViewCell.swift in Sources */,
@@ -400,10 +373,6 @@
 				9F42BAE42835067C0023B096 /* NetworkService.swift in Sources */,
 				9F42BADB282EEE820023B096 /* DetailBestFilmController.swift in Sources */,
 				9F280054281CF81700DAA718 /* FilmsByActorData.swift in Sources */,
-				9F12ACFF281824A20099337B /* NetworkActorManager.swift in Sources */,
-				9F42BAD728246CF10023B096 /* NetworkBestFilmsManager.swift in Sources */,
-				9F42BAE22832E27B0023B096 /* NetworkRandomFilmManager.swift in Sources */,
-				9F1C0BDC281AA6FA006B24A2 /* NetworkActorForIDManager.swift in Sources */,
 				9F42BAD9282C56E40023B096 /* BestFooterCell.swift in Sources */,
 				9F93576D27F718E8007B54B5 /* AppDelegate.swift in Sources */,
 				9F42BAD028240EF10023B096 /* BestFilmsCollectionViewController.swift in Sources */,
@@ -422,7 +391,6 @@
 				9F42BAD328246A040023B096 /* BestFilmsCell.swift in Sources */,
 				9F12ACDD28036CAF0099337B /* GenreListViewController.swift in Sources */,
 				9F12ACF6281347AB0099337B /* ActorSearchViewController.swift in Sources */,
-				9F280052281CF7E100DAA718 /* NetworkFilmsByActorManager.swift in Sources */,
 				9F12ACFD281824780099337B /* MainButton.swift in Sources */,
 				9F12AC7A27FDC5040099337B /* MainViewCell.swift in Sources */,
 				9F42BAE62835097D0023B096 /* NetworkDataFetcher.swift in Sources */,

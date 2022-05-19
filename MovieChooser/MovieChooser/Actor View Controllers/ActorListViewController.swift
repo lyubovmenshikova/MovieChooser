@@ -12,6 +12,7 @@ class ActorListViewController: UITableViewController {
     var actorName: String?
     var actors = [Actors]()
     let loadingView = LoadingView()
+    var dataFetcherService = DataFetcherService()
     
     
     override func viewDidLoad() {
@@ -37,7 +38,8 @@ class ActorListViewController: UITableViewController {
     
     private func getActors() {
         if let actorName = actorName {
-            NetworkActorManager.shared.fetchCurrentActors(for: actorName) { actorsData in
+            dataFetcherService.fetchActorsByName(for: actorName) { actorsData in
+                guard let actorsData = actorsData else { return }
                 self.actors.append(contentsOf: actorsData.items)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()

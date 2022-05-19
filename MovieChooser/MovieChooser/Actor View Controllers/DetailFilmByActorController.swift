@@ -17,7 +17,7 @@ class DetailFilmByActorController: UIViewController {
     @IBOutlet var countryLabel: UILabel!
     @IBOutlet var yearLabel: UILabel!
     
-    
+    var dataFetcherService = DataFetcherService()
     var mainColor = UIColor(red: 17/255, green: 188/255, blue: 214/255, alpha: 1)
     var font = UIFont(name: "TrebuchetMS", size: 16)
     var id: Int?
@@ -50,20 +50,20 @@ class DetailFilmByActorController: UIViewController {
     
     private func setupData() {
         
-        NetworkFilmsByActorManager.shared.fetchFilmByActor(for: id ?? 0) { film in
-            self.filmTitleLabel.text = film.nameRu ?? "Нет информации"
-            self.lenghtLabel.text = "\(film.filmLength ?? 0) мин."
-            self.descriptionLabel.text = film.shortDescription ?? "Нет информации"
-            self.countryLabel.text = film.countries.first?.country ?? "Нет информации"
-            self.yearLabel.text = "\(film.year ?? 0)"
-            
-            let stringURL = film.posterUrlPreview
+        dataFetcherService.fetchActorFilms(for: id ?? 0) { filmsByActor in
+            guard let filmsByActor = filmsByActor else { return }
+            self.filmTitleLabel.text = filmsByActor.nameRu ?? "Нет информации"
+            self.lenghtLabel.text = "\(filmsByActor.filmLength ?? 0) мин."
+            self.descriptionLabel.text = filmsByActor.shortDescription ?? "Нет информации"
+            self.countryLabel.text = filmsByActor.countries.first?.country ?? "Нет информации"
+            self.yearLabel.text = "\(filmsByActor.year ?? 0)"
+
+            let stringURL = filmsByActor.posterUrlPreview
             guard let imageURL = URL(string: stringURL),
                   let imageData = try? Data(contentsOf: imageURL) else { return }
             DispatchQueue.main.async {
                 self.filmImage.image = UIImage(data: imageData)
             }
-            
         }
     }
     

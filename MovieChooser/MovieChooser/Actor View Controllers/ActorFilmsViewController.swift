@@ -13,6 +13,7 @@ class ActorFilmsViewController: UITableViewController {
     var films = [Films]()
     var actorData: ActorIdData!
     let loadingView = LoadingView()
+    var dataFetcherService = DataFetcherService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +37,8 @@ class ActorFilmsViewController: UITableViewController {
     
     private func getFilms() {
         if let idForActor = idForActor {
-            NetworkActorForIDManager.shared.fetchActor(for: idForActor) { actorIdData in
+            dataFetcherService.fetchActorInfoByID(for: idForActor) { actorIdData in
+                guard let actorIdData = actorIdData else { return }
                 self.actorData = actorIdData
                 self.films.append(contentsOf: actorIdData.films)
                 DispatchQueue.main.async {
@@ -66,10 +68,10 @@ class ActorFilmsViewController: UITableViewController {
             let film = films[indexPath.row]
             let id = film.filmId
             
-            NetworkFilmsByActorManager.shared.fetchFilmByActor(for: id) { filmByActor in
-                cell.configure(with: filmByActor)
+            dataFetcherService.fetchActorFilms(for: id) { filmsByActor in
+                guard let filmsByActor = filmsByActor else { return }
+                cell.configure(with: filmsByActor)
             }
-            
             return cell
         }
         
