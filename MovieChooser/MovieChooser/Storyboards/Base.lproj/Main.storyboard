@@ -238,17 +238,17 @@
                                     <constraint firstAttribute="width" constant="260" id="yoe-fZ-P6f"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ym-74-Br4">
-                                <rect key="frame" x="57" y="459" width="261" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ym-74-Br4">
+                                <rect key="frame" x="57" y="459" width="261" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="oru-36-4X2"/>
+                                    <constraint firstAttribute="height" constant="60" id="oru-36-4X2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5iF-k9-7hQ">
-                                <rect key="frame" x="57.5" y="571" width="260" height="40"/>
+                                <rect key="frame" x="57.5" y="561" width="260" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="PGK-87-Cl8"/>
                                 </constraints>
@@ -268,16 +268,29 @@
                                     <action selector="generationButtonPressed:" destination="YjG-Ig-KLK" eventType="touchUpInside" id="6ns-7t-Cn3"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jkr-2h-C47">
+                                <rect key="frame" x="29" y="125" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="Bda-rP-9Rv"/>
+                                    <constraint firstAttribute="height" constant="30" id="E99-rN-qUA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fba-C8-yjz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="5iF-k9-7hQ" firstAttribute="top" secondItem="5ym-74-Br4" secondAttribute="bottom" constant="62" id="3F1-0H-k17"/>
+                            <constraint firstItem="Jkr-2h-C47" firstAttribute="leading" secondItem="fba-C8-yjz" secondAttribute="leading" constant="29" id="2bh-jn-94W"/>
+                            <constraint firstItem="5iF-k9-7hQ" firstAttribute="top" secondItem="5ym-74-Br4" secondAttribute="bottom" constant="42" id="3F1-0H-k17"/>
                             <constraint firstItem="5iF-k9-7hQ" firstAttribute="width" secondItem="fLF-LM-OFM" secondAttribute="width" id="7GO-3F-CVI"/>
                             <constraint firstItem="5ym-74-Br4" firstAttribute="top" secondItem="fLF-LM-OFM" secondAttribute="bottom" constant="5" id="CEB-fu-lHL"/>
                             <constraint firstItem="5ym-74-Br4" firstAttribute="width" secondItem="fLF-LM-OFM" secondAttribute="width" multiplier="1.00385" id="Drx-B0-ohM"/>
                             <constraint firstItem="5iF-k9-7hQ" firstAttribute="centerX" secondItem="fLF-LM-OFM" secondAttribute="centerX" id="Kne-AP-wlF"/>
                             <constraint firstItem="fLF-LM-OFM" firstAttribute="top" secondItem="fba-C8-yjz" secondAttribute="top" constant="30" id="P7b-oU-ybM"/>
+                            <constraint firstItem="Jkr-2h-C47" firstAttribute="top" secondItem="fba-C8-yjz" secondAttribute="top" constant="81" id="SIJ-bH-XwX"/>
+                            <constraint firstItem="fba-C8-yjz" firstAttribute="trailing" secondItem="Jkr-2h-C47" secondAttribute="trailing" constant="286" id="TYg-PT-HaY"/>
                             <constraint firstItem="fLF-LM-OFM" firstAttribute="centerX" secondItem="1Nw-De-7g9" secondAttribute="centerX" id="sbG-t4-pJx"/>
                             <constraint firstItem="5ym-74-Br4" firstAttribute="centerX" secondItem="fLF-LM-OFM" secondAttribute="centerX" id="tm2-kJ-WVL"/>
                         </constraints>
@@ -287,6 +300,7 @@
                         <outlet property="filmImageView" destination="fLF-LM-OFM" id="PaB-Cn-qwr"/>
                         <outlet property="filmTitleLabel" destination="5ym-74-Br4" id="RKw-6C-QO2"/>
                         <outlet property="generationButton" destination="5iF-k9-7hQ" id="ggY-nG-YnS"/>
+                        <outlet property="ratingLabel" destination="Jkr-2h-C47" id="SgN-oE-FFc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTL-ib-4Bh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
