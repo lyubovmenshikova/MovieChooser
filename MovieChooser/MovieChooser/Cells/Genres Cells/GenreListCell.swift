@@ -20,33 +20,46 @@ class GenreListCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         setupCell()
+        setupYearFilmLabel()
+        setupRatingLabel()
+        setupGenreListView()
     }
     
     private func setupCell () {
         titleFilmLabel.textColor = mainColor
         titleFilmLabel.font = UIFont(name: "TrebuchetMS", size: 18)
-        
+        filmImage.layer.cornerRadius = 16
+    }
+    
+    private func setupYearFilmLabel() {
         yearFilmLabel.textColor = .red
         yearFilmLabel.font = UIFont(name: "TrebuchetMS", size: 12)
-        
+    }
+    
+    private func setupRatingLabel() {
         ratingLabel.backgroundColor = mainColor
         ratingLabel.layer.masksToBounds = true
         ratingLabel.layer.cornerRadius = 5
-        
+    }
+    
+    private func setupGenreListView() {
         genreListView.layer.borderColor = mainColor.cgColor
         genreListView.layer.borderWidth = 0.5
         genreListView.layer.cornerRadius = 16
-        filmImage.layer.cornerRadius = 16
-        
     }
+    
+    
     
     func configure(with genre: Item ) {
         titleFilmLabel.text = genre.nameRu ?? "Нет информации"
         yearFilmLabel.text = "Год: \(genre.year ?? 0)"
         ratingLabel.text = "\(genre.ratingKinopoisk ?? 0.0)"
         
+        fetchImage(genre: genre)
+    }
+    
+    private func fetchImage(genre: Item) {
         DispatchQueue.global().async {
             let stringURL = genre.posterUrlPreview
             guard let imageURL = URL(string: stringURL),
@@ -56,13 +69,10 @@ class GenreListCell: UITableViewCell {
                 self.filmImage.image = UIImage(data: imageData)
             }
         }
-        
     }
     
     //метод используется перед тем как ячейка будет переиспользована
     override func prepareForReuse() {
         filmImage.image = nil
     }
-    
-    
 }

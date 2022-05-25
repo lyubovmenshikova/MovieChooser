@@ -11,6 +11,7 @@ import UIKit
 class MainCollectionViewController: UICollectionViewController {
     
     let mainButtons = MainButton.getButtons()
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -21,10 +22,9 @@ class MainCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAppearance()
-        
-        let cellTypeNib = UINib(nibName: "MainViewCell", bundle: nil)
-        collectionView.register(cellTypeNib, forCellWithReuseIdentifier: "MainViewCell")
+        registerCell()
     }
+    
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -93,6 +93,11 @@ extension MainCollectionViewController {
         navigationItem.title = "Movie Chooser"
         collectionView.backgroundColor = .secondarySystemBackground
         navigationItem.backButtonTitle = "Назад"
+    }
+    
+    private func  registerCell() {
+        let cellTypeNib = UINib(nibName: "MainViewCell", bundle: nil)
+        collectionView.register(cellTypeNib, forCellWithReuseIdentifier: "MainViewCell")
     }
     
 }

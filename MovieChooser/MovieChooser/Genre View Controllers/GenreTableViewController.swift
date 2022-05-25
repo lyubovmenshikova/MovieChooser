@@ -15,16 +15,9 @@ class GenreTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .secondarySystemBackground
-        
-        navigationController?.navigationBar.tintColor = UIColor(red: 176/255, green: 88/255, blue: 138/255, alpha: 1)
-        navigationItem.largeTitleDisplayMode = .never
-        navigationItem.backButtonTitle = "Назад"
-        tableView.separatorStyle = .none
-        tableView.showsVerticalScrollIndicator = false
-        
-        
+        setupAppearance()
+        setupNavigationBar()
+        setupTableView()
     }
     
     // MARK: - Table view data source
@@ -56,6 +49,24 @@ class GenreTableViewController: UITableViewController {
         destinationVC.idNumber = genres[indexPath.row].id
         destinationVC.genre = genres[indexPath.row].name
     }
+}
+
+// MARK: - Extension
+
+extension GenreTableViewController {
     
+    private func setupAppearance() {
+        view.backgroundColor = .secondarySystemBackground
+    }
     
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.tintColor = UIColor(red: 176/255, green: 88/255, blue: 138/255, alpha: 1)
+        navigationItem.largeTitleDisplayMode = .never
+        navigationItem.backButtonTitle = "Назад"
+    }
+    
+    private func setupTableView() {
+        tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
+    }
 }

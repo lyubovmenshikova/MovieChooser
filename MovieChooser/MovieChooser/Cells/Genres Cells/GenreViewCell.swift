@@ -13,18 +13,28 @@ class GenreViewCell: UITableViewCell {
     @IBOutlet var genreImageView: UIImageView!
     @IBOutlet var genreLabel: UILabel!
     
+    var mainColor = UIColor(red: 176/255, green: 88/255, blue: 138/255, alpha: 1)
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupCell()
+        setupGenreLabel()
+        setupGenreView()
+        setupGenreImageView()
     }
     
-    private func setupCell() {
-        genreLabel.textColor = UIColor(red: 176/255, green: 88/255, blue: 138/255, alpha: 1)
+    private func setupGenreLabel() {
+        genreLabel.textColor = mainColor
         genreLabel.font = UIFont(name: "TrebuchetMS", size: 23)
-        genreImageView.backgroundColor = .secondarySystemBackground
-        genreView.layer.borderColor = UIColor(red: 176/255, green: 88/255, blue: 138/255, alpha: 1).cgColor
+    }
+    
+    private func setupGenreView() {
+        genreView.layer.borderColor = mainColor.cgColor
         genreView.layer.borderWidth = 0.5
         genreView.layer.cornerRadius = 16
+    }
+    
+    private func setupGenreImageView() {
+        genreImageView.backgroundColor = .secondarySystemBackground
         genreImageView.layer.cornerRadius = genreImageView.frame.height / 2
     }
     
@@ -32,5 +42,7 @@ class GenreViewCell: UITableViewCell {
         genreLabel.text = genre.name
         genreImageView.image = genre.image
     }
+    
+    
 
 }

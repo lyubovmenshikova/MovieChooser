@@ -23,11 +23,9 @@ class FilmDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupImage()
         setupAppearance()
         setupData()
-        
     }
     
     private func setupAppearance() {
@@ -38,7 +36,6 @@ class FilmDetailViewController: UIViewController {
         
         yearLabel.textColor = mainColor
         yearLabel.font = font
-        
     }
     
     private func setupData() {

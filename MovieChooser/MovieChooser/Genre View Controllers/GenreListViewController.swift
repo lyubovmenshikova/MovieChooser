@@ -12,9 +12,8 @@ class GenreListViewController: UITableViewController {
     var films = [Item]()
     var totalPage = 1
     var currentPage = 1
-    
     var genre: String!
-    var idNumber: String?
+    var idNumber: String!
     
     var dataFetcherService = DataFetcherService()
     
@@ -24,41 +23,13 @@ class GenreListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupAppearance()
+        setupNavigationBar()
+        setupTableView()
+        setupLoadingView()
         getFilms()
-        
     }
     
-    private func setupAppearance() {
-        navigationItem.largeTitleDisplayMode = .never
-        view.backgroundColor = .secondarySystemBackground
-        
-        title = self.genre
-        
-        navigationController?.navigationBar.titleTextAttributes =  [.font : UIFont(name: "TrebuchetMS", size: 20) ?? "",.foregroundColor : UIColor(red: 176/255, green: 88/255, blue: 138/255, alpha: 1)]
-        
-        tableView.separatorStyle = .none
-        tableView.showsVerticalScrollIndicator = false
-        
-        //устанавливаем loading текст и спиннер
-        loadingView.setLoadingScreen(x: (self.tableView.frame.width / 2), y: (self.tableView.frame.height / 2) - (self.navigationController?.navigationBar.frame.height)!)
-        tableView.addSubview(loadingView)
-    }
-    
-    private func getFilms() {
-        if let idNumber = idNumber {
-            dataFetcherService.fetchFilmsByGenre(for: idNumber, page: 1) { genreData in
-                guard let genreData = genreData else { return }
-                self.films.append(contentsOf: genreData.items)
-                self.totalPage = genreData.totalPages
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    self.loadingView.removeLoadingScreen()
-                }
-            }
-        }
-    }
     
     
     // MARK: - Table view data source
@@ -86,7 +57,7 @@ class GenreListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if currentPage < totalPage && indexPath.row == films.count - 1 {
             currentPage += 1
-            dataFetcherService.fetchFilmsByGenre(for: idNumber ?? "", page: currentPage) { genreData in
+            dataFetcherService.fetchFilmsByGenre(for: idNumber, page: currentPage) { genreData in
                 guard let genreData = genreData else { return }
                 self.films.append(contentsOf: genreData.items)
                 self.totalPage = genreData.totalPages
@@ -95,7 +66,6 @@ class GenreListViewController: UITableViewController {
                 }
             }
         }
-       
     }
     
     // MARK: - Navigation
@@ -111,6 +81,45 @@ class GenreListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
         cell.setSelected(false, animated: true)
+    }
+    
+}
+
+// MARK: - Extention
+extension GenreListViewController {
+   
+    private func setupAppearance() {
+        view.backgroundColor = .secondarySystemBackground
+        title = self.genre
+    }
+    
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.titleTextAttributes =  [.font : UIFont(name: "TrebuchetMS", size: 20) ?? "",.foregroundColor : UIColor(red: 176/255, green: 88/255, blue: 138/255, alpha: 1)]
+        navigationItem.largeTitleDisplayMode = .never
+    }
+    
+    private func setupTableView() {
+        tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
+    }
+    
+    private func setupLoadingView() {
+        //устанавливаем loading текст и спиннер
+        loadingView.setLoadingScreen(x: (self.tableView.frame.width / 2), y: (self.tableView.frame.height / 2) - (self.navigationController?.navigationBar.frame.height)!)
+        tableView.addSubview(loadingView)
+    }
+    
+    //MARK: Get Films
+    private func getFilms() {
+        dataFetcherService.fetchFilmsByGenre(for: idNumber, page: 1) { genreData in
+            guard let genreData = genreData else { return }
+            self.films.append(contentsOf: genreData.items)
+            self.totalPage = genreData.totalPages
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.loadingView.removeLoadingScreen()
+            }
+        }
     }
     
 }
