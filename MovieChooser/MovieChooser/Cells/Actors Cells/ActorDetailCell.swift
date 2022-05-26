@@ -22,27 +22,40 @@ class ActorDetailCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        setupCell()
+        setupNameLabel()
+        setupSexLabel()
+        setupDateOfBirthLabel()
+        setupPlaceOfBirthLabel()
+        setupAgeLabel()
+        setupActorDetailView()
     }
     
-    private func setupCell () {
-        
+    private func setupNameLabel() {
         actorNameLabel.textColor = mainColor
         actorNameLabel.font = UIFont(name: "TrebuchetMS", size: 15)
-        
+    }
+ 
+    private func setupSexLabel() {
         sexLabel.textColor = mainColor
         sexLabel.font = UIFont(name: "TrebuchetMS", size: 16)
-        
+    }
+
+    private func setupDateOfBirthLabel() {
         dateOfBirthLabel.textColor = mainColor
         dateOfBirthLabel.font = UIFont(name: "TrebuchetMS", size: 16)
-        
+    }
+    
+    private func setupPlaceOfBirthLabel() {
         placeOfBirthLabel.textColor = mainColor
         placeOfBirthLabel.font = UIFont(name: "TrebuchetMS", size: 13)
-        
+    }
+    
+    private func setupAgeLabel() {
         ageLabel.textColor = mainColor
         ageLabel.font = UIFont(name: "TrebuchetMS", size: 16)
-        
+    }
+    
+    private func setupActorDetailView() {
         actorDetailView.layer.borderColor = mainColor.cgColor
         actorDetailView.layer.borderWidth = 0.5
     }
@@ -54,12 +67,14 @@ class ActorDetailCell: UITableViewCell {
         placeOfBirthLabel.text = actor.birthplace ?? ""
         ageLabel.text = "\(actor.age ?? 0)"
         
+        configureToRus(with: actor)
+    }
+    
+    private func configureToRus(with actor: ActorIdData) {
         // вызов отдельной структуры для перевода данных о поле на русский язык
         if let actorData = ActorID(actorIdData: actor) {
             sexLabel.text = actorData.sexInRussian
         }
-       
-        
     }
 
 }

@@ -12,33 +12,33 @@ class ActorsListViewCell: UITableViewCell {
     
     @IBOutlet var actorsListView: UIView!
     @IBOutlet var actorIcon: UIImageView!
-    
     @IBOutlet var actorNameLabel: UILabel!
    
-    
     var mainColor = UIColor(red: 17/255, green: 188/255, blue: 214/255, alpha: 1)
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        setupCell()
+        setupNameLabel()
+        setupActorsListView()
     }
     
-    private func setupCell () {
-        
+    private func setupNameLabel () {
         actorNameLabel.textColor = mainColor
         actorNameLabel.font = UIFont(name: "TrebuchetMS", size: 18)
-        
-        
+    }
+    
+    private func setupActorsListView () {
         actorsListView.layer.borderColor = mainColor.cgColor
         actorsListView.layer.borderWidth = 0.5
         actorsListView.layer.cornerRadius = 16
-        actorIcon.layer.cornerRadius = 16
     }
     
     func configure(with actor: Actors ) {
         actorNameLabel.text = "\(actor.nameRu ?? "") \r\n \(actor.nameEn ?? "")"
-        
+        setImage(with: actor)
+    }
+    
+    private func setImage(with actor: Actors) {
         DispatchQueue.global().async {
             let stringURL = actor.posterUrl
             guard let imageURL = URL(string: stringURL),
@@ -48,12 +48,10 @@ class ActorsListViewCell: UITableViewCell {
                 self.actorIcon.image = UIImage(data: imageData)
             }
         }
-        
     }
     
     override func prepareForReuse() {
         actorIcon.image = nil
     }
-    
     
 }

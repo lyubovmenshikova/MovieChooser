@@ -17,38 +17,13 @@ class ActorListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupAppearance()
+        setupNavigationBar()
+        setupTableView()
+        setLoadingView()
         getActors()
     }
-    
-    private func setupAppearance() {
-        navigationItem.largeTitleDisplayMode = .never
-        view.backgroundColor = .secondarySystemBackground
         
-        
-        navigationController?.navigationBar.titleTextAttributes =  [.font : UIFont(name: "TrebuchetMS", size: 20) ?? "",.foregroundColor : UIColor(red: 17/255, green: 188/255, blue: 214/255, alpha: 1)]
-        
-        tableView.separatorStyle = .none
-        tableView.showsVerticalScrollIndicator = false
-        
-        loadingView.setLoadingScreen(x: (self.tableView.frame.width / 2), y: (self.tableView.frame.height / 2) - (self.navigationController?.navigationBar.frame.height)!)
-        tableView.addSubview(loadingView)
-    }
-    
-    private func getActors() {
-        if let actorName = actorName {
-            dataFetcherService.fetchActorsByName(for: actorName) { actorsData in
-                guard let actorsData = actorsData else { return }
-                self.actors.append(contentsOf: actorsData.items)
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    self.loadingView.removeLoadingScreen()
-                }
-            }
-        }
-    }
-    
     
     // MARK: - Table view data source
     
@@ -72,8 +47,6 @@ class ActorListViewController: UITableViewController {
     
     
     // MARK: - Navigation
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = tableView.indexPathForSelectedRow,
               let destinationVC = segue.destination as? ActorFilmsViewController else { return }
@@ -81,4 +54,42 @@ class ActorListViewController: UITableViewController {
     }
 
     
+}
+
+// MARK: - Extension
+extension ActorListViewController {
+    
+    private func setupAppearance() {
+        view.backgroundColor = .secondarySystemBackground
+    }
+    
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.titleTextAttributes =  [.font : UIFont(name: "TrebuchetMS", size: 20) ?? "",.foregroundColor : UIColor(red: 17/255, green: 188/255, blue: 214/255, alpha: 1)]
+        navigationItem.largeTitleDisplayMode = .never
+    }
+    
+    private func setupTableView() {
+        tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
+    }
+    
+    private func setLoadingView() {
+        loadingView.setLoadingScreen(x: (self.tableView.frame.width / 2), y: (self.tableView.frame.height / 2) - (self.navigationController?.navigationBar.frame.height)!)
+        tableView.addSubview(loadingView)
+    }
+    
+    
+    private func getActors() {
+        if let actorName = actorName {
+            dataFetcherService.fetchActorsByName(for: actorName) { actorsData in
+                guard let actorsData = actorsData else { return }
+                self.actors.append(contentsOf: actorsData.items)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.loadingView.removeLoadingScreen()
+                }
+            }
+        }
+    }
+
 }

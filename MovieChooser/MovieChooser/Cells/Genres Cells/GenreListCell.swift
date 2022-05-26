@@ -49,8 +49,6 @@ class GenreListCell: UITableViewCell {
         genreListView.layer.cornerRadius = 16
     }
     
-    
-    
     func configure(with genre: Item ) {
         titleFilmLabel.text = genre.nameRu ?? "Нет информации"
         yearFilmLabel.text = "Год: \(genre.year ?? 0)"

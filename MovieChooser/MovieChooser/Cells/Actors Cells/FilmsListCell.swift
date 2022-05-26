@@ -21,38 +21,51 @@ class FilmsListCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-       setupCell()
+       setupFilmNameLabel()
+        setupGenreLabel()
+        setupYearLabel()
+        setupRatingLabel()
+        setupFilmsListView()
     }
 
-    private func setupCell () {
-        
+    private func setupFilmNameLabel() {
         filmNameLabel.textColor = .black
         filmNameLabel.font = UIFont(name: "TrebuchetMS", size: 17)
-        
+    }
+    
+    private func setupGenreLabel() {
         genreLabel.textColor = mainColor
         genreLabel.font = UIFont(name: "TrebuchetMS", size: 15)
-        
+    }
+    
+    private func setupYearLabel() {
         yearLabel.textColor = mainColor
         yearLabel.font = UIFont(name: "TrebuchetMS", size: 15)
-        
+    }
+    
+    private func setupRatingLabel() {
         ratingLabel.backgroundColor = mainColor
         ratingLabel.layer.masksToBounds = true
         ratingLabel.layer.cornerRadius = 5
-        
+    }
+    
+    private func setupFilmsListView() {
         filmsListView.layer.borderColor = mainColor.cgColor
         filmsListView.layer.borderWidth = 0.5
         filmsListView.layer.cornerRadius = 16
-        
     }
     
-    func configure(with film: FilmsByActorData ) {
+    func configure(with film: FilmsByActorData) {
         
         filmNameLabel.text =  film.nameRu ?? "Нет информации"
         ratingLabel.text = "\(film.ratingKinopoisk ?? 0)"
         genreLabel.text = film.genres.first?.genre ?? "Нет информации"
         yearLabel.text = "\(film.year ?? 0)"
         
-
+        fetchImage(with: film)
+    }
+    
+    private func fetchImage(with film: FilmsByActorData) {
         DispatchQueue.global().async {
             let stringURL = film.posterUrlPreview
             guard let imageURL = URL(string: stringURL),
@@ -62,9 +75,7 @@ class FilmsListCell: UITableViewCell {
                 self.filmIconImage.image = UIImage(data: imageData)
             }
         }
-
     }
-    
     
     override func prepareForReuse() {
         filmIconImage.image = nil

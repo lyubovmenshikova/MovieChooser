@@ -17,24 +17,12 @@ class ActorSearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         searchTextField.delegate = self
         setupAppearance()
+        setupNavigationBar()
+        setupSearchButton()
     }
     
-    private func setupAppearance() {
-        navigationItem.largeTitleDisplayMode = .never
-        view.backgroundColor = .secondarySystemBackground
-        
-        navigationController?.navigationBar.tintColor = mainColor
-        
-        searchButton.tintColor = mainColor
-        searchButton.layer.borderColor = mainColor.cgColor
-        searchButton.layer.borderWidth = 1
-        searchButton.layer.cornerRadius = 10
-        
-        searchTextField.placeholder = "Введите имя актера"
-    }
     
     @IBAction func searchButtonPressed(_ sender: UIButton) {
         guard let name = searchTextField.text else { return }
@@ -46,11 +34,26 @@ class ActorSearchViewController: UIViewController {
             searchTextField.text = nil
         }
     }
-    
-
 }
 
 extension ActorSearchViewController {
+    
+    private func setupAppearance() {
+        view.backgroundColor = .secondarySystemBackground
+        searchTextField.placeholder = "Введите имя актера"
+    }
+    
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.tintColor = mainColor
+        navigationItem.largeTitleDisplayMode = .never
+    }
+    
+    private func setupSearchButton() {
+        searchButton.tintColor = mainColor
+        searchButton.layer.borderColor = mainColor.cgColor
+        searchButton.layer.borderWidth = 1
+        searchButton.layer.cornerRadius = 10
+    }
     
     private func showAlertController(with title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)

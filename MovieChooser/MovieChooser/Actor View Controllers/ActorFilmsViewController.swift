@@ -9,7 +9,7 @@ import UIKit
 
 class ActorFilmsViewController: UITableViewController {
     
-    var idForActor: Int?
+    var idForActor: Int!
     var films = [Films]()
     var actorData: ActorIdData!
     let loadingView = LoadingView()
@@ -18,36 +18,12 @@ class ActorFilmsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAppearance()
+        setupNavigationBar()
+        setupTableView()
+        setLoadingView()
         getFilms()
     }
     
-    private func setupAppearance() {
-        navigationItem.largeTitleDisplayMode = .never
-        view.backgroundColor = .secondarySystemBackground
-        
-        
-        navigationController?.navigationBar.titleTextAttributes =  [.font : UIFont(name: "TrebuchetMS", size: 20) ?? "",.foregroundColor : UIColor(red: 17/255, green: 188/255, blue: 214/255, alpha: 1)]
-        
-        tableView.separatorStyle = .none
-        tableView.showsVerticalScrollIndicator = false
-        
-        loadingView.setLoadingScreen(x: (self.tableView.frame.width / 2), y: (self.tableView.frame.height / 2) - (self.navigationController?.navigationBar.frame.height)!)
-        tableView.addSubview(loadingView)
-    }
-    
-    private func getFilms() {
-        if let idForActor = idForActor {
-            dataFetcherService.fetchActorInfoByID(for: idForActor) { actorIdData in
-                guard let actorIdData = actorIdData else { return }
-                self.actorData = actorIdData
-                self.films.append(contentsOf: actorIdData.films)
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    self.loadingView.removeLoadingScreen()
-                }
-            }
-        }
-    }
     
     // MARK: - Table view data source
     
@@ -100,4 +76,38 @@ class ActorFilmsViewController: UITableViewController {
          destinationVC.id = films[indexPath.row].filmId
      }
     
+}
+
+extension ActorFilmsViewController{
+    
+    private func setupAppearance() {
+        view.backgroundColor = .secondarySystemBackground
+    }
+    
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.titleTextAttributes =  [.font : UIFont(name: "TrebuchetMS", size: 20) ?? "",.foregroundColor : UIColor(red: 17/255, green: 188/255, blue: 214/255, alpha: 1)]
+        navigationItem.largeTitleDisplayMode = .never
+    }
+    
+    private func setupTableView() {
+        tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
+    }
+    
+    private func setLoadingView() {
+        loadingView.setLoadingScreen(x: (self.tableView.frame.width / 2), y: (self.tableView.frame.height / 2) - (self.navigationController?.navigationBar.frame.height)!)
+        tableView.addSubview(loadingView)
+    }
+    
+    private func getFilms() {
+        dataFetcherService.fetchActorInfoByID(for: idForActor) { actorIdData in
+            guard let actorIdData = actorIdData else { return }
+            self.actorData = actorIdData
+            self.films.append(contentsOf: actorIdData.films)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.loadingView.removeLoadingScreen()
+                }
+            }
+    }
 }
