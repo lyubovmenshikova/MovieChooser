@@ -23,25 +23,11 @@ class RandomFilmViewController: UIViewController {
         super.viewDidLoad()
         
         setupAppearance()
+        setupNavigationBar()
+        setupGenerationButton()
+        setupFilmLabel()
+        setupRatingLabel()
         getRandomPage()
-    }
-    
-    private func setupAppearance() {
-        navigationItem.largeTitleDisplayMode = .never
-        view.backgroundColor = .secondarySystemBackground
-        
-        navigationController?.navigationBar.tintColor = mainColor
-        
-        generationButton.backgroundColor = mainColor
-        generationButton.tintColor = .white
-        generationButton.layer.cornerRadius = 10
-        
-        filmTitleLabel.font = UIFont(name: "TrebuchetMS", size: 19)
-        
-        ratingLabel.backgroundColor = mainColor
-        ratingLabel.layer.masksToBounds = true
-        ratingLabel.layer.cornerRadius = 5
-        ratingLabel.font = UIFont(name: "TrebuchetMS", size: 17)
     }
     
     private func getRandomPage() {
@@ -68,6 +54,10 @@ class RandomFilmViewController: UIViewController {
         filmTitleLabel.text = randomElement?.nameRu
         ratingLabel.text = randomElement?.rating
         
+        fetchImage(randomElement: randomElement)
+    }
+    
+    private func fetchImage(randomElement: Items?) {
         DispatchQueue.global().async {
             guard let stringURL = randomElement?.posterUrl,
                   let imageURL = URL(string: stringURL),
@@ -93,4 +83,35 @@ class RandomFilmViewController: UIViewController {
     }
     */
 
+}
+
+// MARK: - Extension
+extension RandomFilmViewController{
+    
+    private func setupAppearance() {
+        view.backgroundColor = .secondarySystemBackground
+    }
+    
+    private func setupNavigationBar() {
+        navigationItem.largeTitleDisplayMode = .never
+        navigationController?.navigationBar.tintColor = mainColor
+    }
+    
+    private func setupGenerationButton() {
+        generationButton.backgroundColor = mainColor
+        generationButton.tintColor = .white
+        generationButton.layer.cornerRadius = 10
+    }
+    
+    private func setupFilmLabel() {
+        filmTitleLabel.font = UIFont(name: "TrebuchetMS", size: 19)
+    }
+    
+    private func setupRatingLabel() {
+        ratingLabel.backgroundColor = mainColor
+        ratingLabel.layer.masksToBounds = true
+        ratingLabel.layer.cornerRadius = 5
+        ratingLabel.font = UIFont(name: "TrebuchetMS", size: 17)
+    }
+    
 }

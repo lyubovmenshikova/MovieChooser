@@ -13,9 +13,12 @@ class BestFilmsCell: UICollectionViewCell {
     @IBOutlet var titleBestFilm: UILabel!
     
     
-    func configure(with bestFilm: Film ) {
+    func configure(with bestFilm: Film) {
         titleBestFilm.text = bestFilm.nameRu
-        
+        fetchImage(with: bestFilm)
+    }
+    
+    private func fetchImage(with bestFilm: Film) {
         DispatchQueue.global().async {
             let stringURL = bestFilm.posterUrl
             guard let imageURL = URL(string: stringURL),

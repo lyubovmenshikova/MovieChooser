@@ -23,34 +23,8 @@ class BestFilmsCollectionViewController: UICollectionViewController {
         
         getBestFilms()
         setupAppearance()
-    }
-    
-    private func getBestFilms() {
-        dataFetcherService.fetchBestFilms(for: 1) { bestFilmData in
-            guard let bestFilmData = bestFilmData else { return }
-            self.bestFilms.append(contentsOf: bestFilmData.films)
-            self.totalPage = bestFilmData.pagesCount
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-                self.loadingView.removeLoadingScreen()
-            }
-        }
-    }
-    
-    private func setupAppearance() {
-        navigationItem.largeTitleDisplayMode = .never
-        view.backgroundColor = .secondarySystemBackground
-        
-        navigationController?.navigationBar.tintColor = UIColor(red: 81/255, green: 163/255, blue: 18/255, alpha: 1)
-        navigationItem.largeTitleDisplayMode = .never
-        
-        
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.backgroundColor = .systemGroupedBackground
-        
-        //устанавливаем loading текст и спиннер
-        loadingView.setLoadingScreen(x: (self.collectionView.frame.width / 2), y: (self.collectionView.frame.height / 2) - (self.navigationController?.navigationBar.frame.height)!)
-        collectionView.addSubview(loadingView)
+        setupNavigationBar()
+        setupLoadingView()
     }
     
     
@@ -69,8 +43,6 @@ class BestFilmsCollectionViewController: UICollectionViewController {
     
     
     // MARK: UICollectionViewDataSource
-    
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return bestFilms.count
     }
@@ -110,6 +82,7 @@ class BestFilmsCollectionViewController: UICollectionViewController {
     
 }
 
+// MARK: - DelegateFlowLayout
 extension BestFilmsCollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -149,4 +122,39 @@ extension BestFilmsCollectionViewController: UICollectionViewDelegateFlowLayout 
         cell?.layer.borderWidth = 1
     }
     
+}
+
+
+// MARK: - Navigation
+extension BestFilmsCollectionViewController{
+    
+    private func setupAppearance() {
+        view.backgroundColor = .secondarySystemBackground
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.backgroundColor = .systemGroupedBackground
+    }
+    
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.tintColor = UIColor(red: 81/255, green: 163/255, blue: 18/255, alpha: 1)
+        navigationItem.largeTitleDisplayMode = .never
+        navigationItem.largeTitleDisplayMode = .never
+    }
+    
+    private func setupLoadingView() {
+        //устанавливаем loading текст и спиннер
+        loadingView.setLoadingScreen(x: (self.collectionView.frame.width / 2), y: (self.collectionView.frame.height / 2) - (self.navigationController?.navigationBar.frame.height)!)
+        collectionView.addSubview(loadingView)
+    }
+    
+    private func getBestFilms() {
+        dataFetcherService.fetchBestFilms(for: 1) { bestFilmData in
+            guard let bestFilmData = bestFilmData else { return }
+            self.bestFilms.append(contentsOf: bestFilmData.films)
+            self.totalPage = bestFilmData.pagesCount
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+                self.loadingView.removeLoadingScreen()
+            }
+        }
+    }
 }

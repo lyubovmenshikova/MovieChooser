@@ -25,26 +25,22 @@ class DetailBestFilmController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupAppearance()
         updateInterface()
-    }
-    
-    private func setupAppearance() {
-        navigationItem.largeTitleDisplayMode = .never
-        view.backgroundColor = .secondarySystemBackground
-        
-        navigationController?.navigationBar.tintColor = mainColor
-        navigationItem.largeTitleDisplayMode = .never
-        
+        setupAppearance()
+        setupNavigationBar()
         setupColor(with: mainColor)
     }
     
-    func updateInterface() {
+   private func updateInterface() {
         titleFilmLabel.text = filmTitle ?? "Нет информации"
         lengthFilmLabel.text = filmLength ?? "Нет информации"
         countryLabel.text = country ?? "Нет информации"
         yearLabel.text = year ?? "Нет информации"
-        
+       
+       fetchImage()
+    }
+    
+    private func fetchImage() {
         DispatchQueue.global().async {
             guard let stringURL = self.imageURL,
                   let imageURL = URL(string: stringURL),
@@ -55,6 +51,19 @@ class DetailBestFilmController: UIViewController {
             }
         }
     }
+}
+
+extension DetailBestFilmController {
+    
+    private func setupAppearance() {
+        view.backgroundColor = .secondarySystemBackground
+    }
+    
+    private func setupNavigationBar() {
+        navigationItem.largeTitleDisplayMode = .never
+        navigationController?.navigationBar.tintColor = mainColor
+        navigationItem.largeTitleDisplayMode = .never
+    }
     
     private func setupColor(with color: UIColor) {
         titleFilmLabel.textColor = color
@@ -62,7 +71,4 @@ class DetailBestFilmController: UIViewController {
         countryLabel.textColor = color
         yearLabel.textColor = color
     }
-    
-    
-
 }
