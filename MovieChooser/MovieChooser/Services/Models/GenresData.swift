@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GenresData<T : Decodable> : Decodable {
+struct GenresData: Decodable {
     let totalPages: Int
     let items: [Item]
 }

@@ -10,15 +10,19 @@ import Foundation
 //класс отвечающий за конкретные запросы данных для вью контроллеров 
 class DataFetcherService {
     
-    var dataFetcher: DataFetcher
+    var dataFetcher: DataFetcher!
+    static let sharedInstance = DataFetcherService()
     
+    //private init() {}
     init(dataFetcher: DataFetcher = NetworkDataFetcher()){
         self.dataFetcher = dataFetcher
     }
     
+   
+    
     
     //декордируем JSON данные в конкретную модель
-    func fetchFilmsByGenre (for idNumber: String, page: Int, completion: @escaping (GenresData<[Item]>?) -> Void) {
+    func fetchFilmsByGenre (for idNumber: String, page: Int, completion: @escaping (GenresData?) -> Void) {
         let urlFilmByGenre = "https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=\(idNumber)&order=NUM_VOTE&type=FILM&ratingFrom=8&ratingTo=10&yearFrom=1970&yearTo=3000&page=\(page)"
         dataFetcher.fetchGenericJSONData(urlString: urlFilmByGenre, response: completion)
     }

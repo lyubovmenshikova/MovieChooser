@@ -29,6 +29,7 @@ class NetworkDataFetcher: DataFetcher {
                 response(nil)
             }
             let decoded = self.decodeJSON(type: T.self, data: data)
+            DataManager.shared.setFilms(decoded)
             response(decoded)
         }
     }

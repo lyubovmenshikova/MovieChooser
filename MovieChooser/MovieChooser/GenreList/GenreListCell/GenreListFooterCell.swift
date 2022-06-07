@@ -10,5 +10,4 @@ import UIKit
 class GenreListFooterCell: UITableViewCell {
     
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
-
 }
