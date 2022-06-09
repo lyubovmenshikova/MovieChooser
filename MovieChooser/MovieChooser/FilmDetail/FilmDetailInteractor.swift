@@ -23,7 +23,7 @@ class FilmDetailInteractor: FilmDetailInteractorInputProtocol {
     unowned let presenter: FilmDetailInteractorOutputProtocol!
     private let film: Item
     
-    required init(presenter: FilmDetailInteractorOutputProtocol, film: Item) {
+    required init(presenter: FilmDetailInteractorOutputProtocol, film: Item ) {
         self.presenter = presenter
         self.film = film
     }

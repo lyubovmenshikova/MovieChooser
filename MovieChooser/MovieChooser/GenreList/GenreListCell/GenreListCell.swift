@@ -75,25 +75,6 @@ class GenreListCell: UITableViewCell, CellModelRepresentable {
         genreListView.layer.cornerRadius = 16
     }
     
-//    func configure(with genre: Item ) {
-//        titleFilmLabel.text = genre.nameRu ?? "Нет информации"
-//        yearFilmLabel.text = "Год: \(genre.year ?? 0)"
-//        ratingLabel.text = "\(genre.ratingKinopoisk ?? 0.0)"
-//
-//        fetchImage(genre: genre)
-//    }
-    
-//    private func fetchImage(genre: Item) {
-//        DispatchQueue.global().async {
-//            let stringURL = genre.posterUrlPreview
-//            guard let imageURL = URL(string: stringURL),
-//                  let imageData = try? Data(contentsOf: imageURL) else { return }
-//            
-//            DispatchQueue.main.async {
-//                self.filmImage.image = UIImage(data: imageData)
-//            }
-//        }
-//    }
     
     //метод используется перед тем как ячейка будет переиспользована
     override func prepareForReuse() {

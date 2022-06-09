@@ -48,6 +48,14 @@ class GenreListViewController: UITableViewController {
         setupLoadingView()
     }
     
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destinationVC = segue.destination as? FilmDetailViewController else { return }
+        
+        let configurator: FilmDetailConfiguratorInputProtocol = FilmDetailConfigurator()
+        configurator.configure(with: destinationVC, and: sender as! Item)
+    }
+    
     
     
     // MARK: - Table view data source
@@ -91,14 +99,6 @@ class GenreListViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         //обращаемя к презентеру и говорим что ячейка была тапнута
         presenter.didTapCell(at: indexPath)
-    }
-    
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destinationVC = segue.destination as? FilmDetailViewController else { return }
-        
-        let configurator: FilmDetailConfiguratorInputProtocol = FilmDetailConfigurator()
-        configurator.configure(with: destinationVC, and: sender as! Item)
     }
         
 }
